@@ -81,9 +81,10 @@
 	<section id="home_slider">
 		<div class="slider-wrapper theme-default">
 			<div id="slider" class="nivoSlider" style="max-width: 100%; min-width: 100%; min-height: 600px; max-height: 600px;">
-				<img src="https://s-media-cache-ak0.pinimg.com/736x/1b/32/ff/1b32ffe3da3e827093b98129b9a3e705.jpg" alt="" title="#slidecaption1" />
-				<img src="http://buffalocreekcrossfit.com/wp-content/uploads/2011/07/crossfit-equipment.jpg" alt="" title="#slidecaption2" />
-				<img src="http://i.imgur.com/b3Plj4r.png" alt="" title="#slidecaption3" />
+				<img src="https://i.ytimg.com/vi/9RyMbxNL1AQ/maxresdefault.jpg" alt="" title="#slidecaption2" />
+				<img src="http://img0.cfstatic.com/wallpapers/24f9ec81089ed7f42d8a8c285578cc64_large.jpeg" alt="" title="#slidecaption1" />
+				<!-- <img src="http://i.ytimg.com/vi/AsQ8i1xPcDw/maxresdefault.jpg" alt="" title="#slidecaption1" /> -->
+				<img src="http://www.nakedfitfoods.com/sites/default/files/crossfit1.jpg" alt="" title="#slidecaption3" />
 			</div>
 			<div id="slidecaption1" class="nivo-html-caption">
 				<div class="slide_info">
