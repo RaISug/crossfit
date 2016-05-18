@@ -3,8 +3,37 @@
 	function ifPageIsSelectedMarkItAsActive($page) {
 		echo uri_string() === $page ? "current_page_item" : "page_item";
 	}
+	
+	function addDaysToTheCurrentDate($numberOf) {
+		$currentDate = date_create(date("d.m.Y"));
+		date_add($currentDate, date_interval_create_from_date_string("$numberOf days"));
+
+		$formattedDate = date_format($currentDate, 'd.m.Y');
+		$dayName = date('l', strtotime($formattedDate));
+		$translatedDateName = getTranslatedNameOfTheDate($dayName);
+		
+		return sprintf("#%s - %s", $translatedDateName, $formattedDate);
+	}
+	
+	function getTranslatedNameOfTheDate($dayName) {
+		if ($dayName === 'Monday') {
+			return 'Понеделник';
+		} else if ($dayName === 'Tuesday') {
+			return 'Вторник';
+		} else if ($dayName === 'Wednesday') {
+			return 'Сряда';
+		} else if ($dayName === 'Thursday') {
+			return 'Четвъртък';
+		} else if ($dayName === 'Friday') {
+			return 'Петък';
+		} else if ($dayName === 'Saturday') {
+			return 'Събота';
+		}
+		return 'Неделя';
+	}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -44,6 +73,49 @@
 		.content_body {
 			margin-top: 70px;
 		}
+		
+		.schedule_table {
+			width: 100%;
+			table-layout: fixed;
+			border-collapse: collapse;
+		}
+		
+		.schedule_table tbody tr th {
+			padding: 5px;
+			font-size: 15px;
+		}
+		
+		.schedule_table tbody tr td {
+			padding: 5px;
+			height: 50px;
+			text-align:center;
+		}
+		
+		.schedule_table tbody tr th {
+			border: 1px solid black;
+		}
+		
+		.schedule_table tbody tr:first-child th {
+			border-top: 0;
+		}
+
+		.schedule_table tbody tr td {
+			border: 1px solid black;
+		}
+		
+		.schedule_table tbody tr td:first-child, .schedule_table tr th:first-child {
+			border-left: 0;
+		}
+		
+		.schedule_table tbody tr td:last-child, .schedule_table tbody tr th:last-child {
+			border-right: 0;
+		}
+		
+		.schedule_table tbody tr td.training_hour {
+			font-size: 15px;
+			text-align: center;
+		}
+		
 	</style>
 	
 </head>
@@ -66,6 +138,7 @@
 					<ul>
 						<li class="<?php ifPageIsSelectedMarkItAsActive("home") ?>"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
 						<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
+						<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>">Цено разпис</a></li>
 					</ul>
 				</div>
 			</div>

@@ -11,8 +11,9 @@
 				<div class="menu">	
 					<div class="menu">
 						<ul>
-							<li class="current_page_item"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
-							<li class="page_item page-item-6"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
+							<li class="page_item"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
+							<li class="page_item"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
+							<li class="page_item"><a href="<?php echo base_url("pricelist"); ?>">Цено разпис</a></li>
 						</ul>
 					</div>
 				</div>
