@@ -7,10 +7,10 @@ include_once "vheader.php";
 	<section id="home_slider">
 		<div class="slider-wrapper theme-default">
 			<div id="slider" class="nivoSlider" style="max-width: 100%; min-width: 100%; min-height: 600px; max-height: 600px;">
-				<img src="https://i.ytimg.com/vi/9RyMbxNL1AQ/maxresdefault.jpg" alt="" title="#slidecaption2" />
-				<img src="http://img0.cfstatic.com/wallpapers/24f9ec81089ed7f42d8a8c285578cc64_large.jpeg" alt="" title="#slidecaption1" />
-				<!-- <img src="http://i.ytimg.com/vi/AsQ8i1xPcDw/maxresdefault.jpg" alt="" title="#slidecaption1" /> -->
-				<img src="http://www.nakedfitfoods.com/sites/default/files/crossfit1.jpg" alt="" title="#slidecaption3" />
+				<!-- <img src="<?php /* echo base_url("assets/css/images/slides/slide1.jpg"); */ ?>" alt="" title="#slidecaption1" /> -->
+				<img src="<?php echo base_url("assets/css/images/slides/slide2.jpg"); ?>" alt="" title="#slidecaption2" />
+				<img src="<?php echo base_url("assets/css/images/slides/slide3.jpg"); ?>" alt="" title="#slidecaption1" />
+				<img src="<?php echo base_url("assets/css/images/slides/slide4.jpeg"); ?>" alt="" title="#slidecaption3" />
 			</div>
 			<div id="slidecaption1" class="nivo-html-caption">
 				<div class="slide_info">

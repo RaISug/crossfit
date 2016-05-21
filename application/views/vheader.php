@@ -13,28 +13,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CrossFit &#8211; CrossFit Training</title>
 
-	<link rel='stylesheet' id='jquery-ui-css' href='http://besemans-truckshop.com/crossfit/wp-content/plugins/wp-fullcalendar/includes/css/jquery-ui/ui-lightness/jquery-ui.min.css?ver=1.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='jquery-ui-theme-css' href='http://besemans-truckshop.com/crossfit/wp-content/plugins/wp-fullcalendar/includes/css/jquery-ui/ui-lightness/theme.css?ver=1.2' type='text/css' media='all' />
-
-	<link rel='stylesheet' id='bizgrowth-font-css' href='//fonts.googleapis.com/css?family=Roboto+Condensed%3A400%2C300%2C400italic%2C700&#038;ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bizgrowth-basic-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/style.css?ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bizgrowth-editor-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/editor-style.css?ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='nivo-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/css/nivo-slider.css?ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bizgrowth-responsive-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/css/responsive.css?ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='bizgrowth-default-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/css/default.css?ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='animation-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/css/animation.css?ver=4.5.2' type='text/css' media='all' />
-	<link rel='stylesheet' id='font-awesome-style-css' href='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/css/font-awesome.css?ver=4.5.2' type='text/css' media='all' />
+	<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto+Condensed%3A400%2C300%2C400italic%2C700&#038;ver=4.5.2' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/style.css?ver=4.5.2"); ?>' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/editor-style.css?ver=4.5.2"); ?>' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/nivo-slider.css?ver=4.5.2"); ?>' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/responsive.css?ver=4.5.2"); ?>' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/default.css?ver=4.5.2"); ?>' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/animation.css?ver=4.5.2"); ?>' type='text/css' media='all' />
+	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/font-awesome.css?ver=4.5.2"); ?>' type='text/css' media='all' />
 	
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/jquery.js?ver=1.12.3'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.0'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-includes/js/jquery/ui/selectmenu.min.js?ver=1.11.4'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/jquery.js?ver=1.12.3"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/jquery-migrate.min.js?ver=1.4.0"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/core.min.js?ver=1.11.4"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/widget.min.js?ver=1.11.4"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/position.min.js?ver=1.11.4"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/menu.min.js?ver=1.11.4"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/jquery/selectmenu.min.js?ver=1.11.4"); ?>'></script>
 
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/js/jquery.nivo.slider.js?ver=4.5.2'></script>
-	<script type='text/javascript' src='http://besemans-truckshop.com/crossfit/wp-content/themes/bizgrowth/js/custom.js?ver=4.5.2'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/bizgrowth/jquery.nivo.slider.js?ver=4.5.2"); ?>'></script>
+	<script type='text/javascript' src='<?php echo base_url("assets/js/bizgrowth/custom.js?ver=4.5.2"); ?>'></script>
 
 	<style type="text/css">
 		.sitenav ul li a:hover, .sitenav ul li.current_page_item a, .slide_info .slide_more:hover,
