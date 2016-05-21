@@ -4,7 +4,7 @@
 		echo uri_string() === $page ? "current_page_item" : "page_item";
 	}
 	
-	function addDaysToTheCurrentDate($numberOf) {
+	function getTheDateAfterNDays($numberOf) {
 		$currentDate = date_create(date("d.m.Y"));
 		date_add($currentDate, date_interval_create_from_date_string("$numberOf days"));
 
