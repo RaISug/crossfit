@@ -42,18 +42,43 @@ include_once "vheader.php";
 	<div class="container">
 		<div class="page_content">
 			<section class="site-main">
-				<h1 class="entry-title">Начало</h1>
-				<div class="entry-content"></div>
+				<h1 class="entry-title">Новини: </h1><br>
+				<div class="entry-content">
+					<article class="post">
+
+					    <header class="entry-header">
+					        <h2 class="single_title">Тема на новината</h2>
+					    </header>
+					    
+					     <div class="postmeta">
+					            <div class="post-date">Дата</div><!-- post-date -->
+					            <div class="post-comment"> &nbsp;|&nbsp; <a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/#comments">Брой коментари</a></div> 
+					             <div class="post-categories">&nbsp;|&nbsp; Категория: <a href="http://besemans-truckshop.com/crossfit/blog/category/uncategorized/" rel="category tag">Категория</a></div>
+					            <div class="clear"></div>         
+					    </div>
+					    
+					    <div class="entry-content">
+					        <p>Съдържание на новината</p>
+				                <div class="postmeta">          
+						            <div class="post-tags"> </div>
+						            <div class="clear"></div>
+						        </div>
+					    </div>
+					   
+					    <footer class="entry-meta"></footer>
+					
+					</article>
+				</div>
 			</section>
 
-			<div id="sidebar">
+			<!-- <div id="sidebar">
 				<aside id="recent-posts-2" class="widget widget_recent_entries">
 					<h3 class="widget-title">Recent Posts</h3>
 					<ul>
 						<li><a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/">Hello world!</a></li>
 					</ul>
 				</aside>
-			</div>
+			</div> -->
 			<div class="clear"></div>
 		</div>
 	</div>

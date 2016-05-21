@@ -13,7 +13,7 @@
 						<ul>
 							<li class="page_item"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
 							<li class="page_item"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
-							<li class="page_item"><a href="<?php echo base_url("pricelist"); ?>">Цено разпис</a></li>
+							<li class="page_item"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
 						</ul>
 					</div>
 				</div>

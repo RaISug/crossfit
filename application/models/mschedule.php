@@ -20,16 +20,14 @@ class MSchedule extends CI_Model {
 	
 	public function byDate($date) {
 		$query = "SELECT schedules.training_date, trainings.id,"
-				 ." trainings.description, trainings.seats_count as seats,"
-				 ." trainings.duration, training_types.name as training_type"
+				 ." trainings.description, trainings.seats_count as available_seats,"
+				 ." trainings.duration, training_types.name as training_type,"
+				 ." (SELECT COUNT(*) as reserved_seats FROM bookings WHERE bookings.schedule_id = schedules.id) as reserved_seats"
 				 ." FROM schedules"
 				 ." JOIN trainings ON trainings.id = schedules.training_id"
 				 ." JOIN training_types ON training_types.id = trainings.training_type_id"
 				 ." WHERE"
-				 ." DATE_FORMAT(schedules.training_date, '%d.%m.%Y') = ?"
-				 ." UNION"
-		 		 ." SELECT COUNT(*) as reserved_seats FROM bookings "
- 		 		 ." JOIN schedules ON schedules.id = bookings.schedule_id";
+				 ." DATE_FORMAT(schedules.training_date, '%d.%m.%Y') = ?";
 		return $this->db->query($query, array(date_format($date, "d.m.Y")))->result_object();
 	}
 	

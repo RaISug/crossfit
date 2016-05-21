@@ -7,7 +7,7 @@ include_once 'vheader.php';
 	<div class="container">
 		<div class="page_content">
 			<div class="content_body">
-				<h1>Цено разпис</h1>
+				<h1>Ценоразпис: </h1>
 			</div>
 		</div>
 	</div>
