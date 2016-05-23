@@ -19,7 +19,7 @@ class MSchedule extends CI_Model {
 	}
 	
 	public function byDate($date) {
-		$query = "SELECT schedules.training_date, trainings.id,"
+		$query = "SELECT schedules.training_date, schedules.id,"
 				 ." trainings.description, trainings.seats_count as available_seats,"
 				 ." trainings.duration, training_types.name as training_type,"
 				 ." (SELECT COUNT(*) as reserved_seats FROM bookings WHERE bookings.schedule_id = schedules.id) as reserved_seats"

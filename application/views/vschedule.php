@@ -7,7 +7,8 @@
 			if ($schedule->time === $trainingHour) {
 				$message = "Вид: " . $schedule->training_type . "<br>Места: " . $schedule->reserved_seats . "/" . $schedule->available_seats;
 				$messageColor = $schedule->reserved_seats === $schedule->available_seats ? "red" : "green";
-				return "<div><a href='#' style='color: $messageColor'>$message</a></div>";
+				$endpointUrl = base_url("booking?schedule=".$schedule->id);
+				return "<div><a href='$endpointUrl' style='color: $messageColor'>$message</a></div>";
 			}
 		}
 		return "--";

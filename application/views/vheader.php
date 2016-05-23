@@ -51,7 +51,7 @@
 		<div class="container">
 			<div class="logo">
 				<h1>
-					<a href="http://besemans-truckshop.com/crossfit/">CrossFit</a>
+					<a href="<?php base_url(); ?>">CrossFit</a>
 				</h1>
 				<span>CrossFit Training</span>
 			</div>
