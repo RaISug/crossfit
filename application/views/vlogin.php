@@ -57,16 +57,19 @@
 			<h2 class="form-signin-heading">Вход в системата</h2>
 
 			<label for="email" class="sr-only">Емайл адрес</label>
-			<input type="email" class="form-control" placeholder="Емайл адрес" required autofocus>
+			<input type="email" name="email" class="form-control" placeholder="Емайл адрес" required autofocus>
 			
 			<label for="password" class="sr-only">Парола</label>
-			<input type="password" class="form-control" placeholder="Парола" required>
+			<input type="password" name="password" class="form-control" placeholder="Парола" required>
 
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Вход</button>
 		</form>
-
+		
+		<?php 
+			if (isset($errorMessage)) {
+				echo $errorMessage;
+			}
+		?>
 	</div>
-	<!-- /container -->
-
 
 </div>

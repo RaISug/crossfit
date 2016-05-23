@@ -9,11 +9,11 @@ class MUsers extends CI_Model {
 
 	public function isEmailAndPasswordCorrect($email, $password) {
 		$this->db->where('email', $email);
-		$queryResult = $this->db->get('all_users');
+		$queryResult = $this->db->get('users');
 	
 		if ($queryResult->num_rows() == 1) {
 			$queryResult = $queryResult->result_array();
-			
+
 			if ($this->bcrypt->check_password($password, $queryResult[0]['password'])) {
 				$sessionData = array(
 					'user_id' => $queryResult[0]['id'],

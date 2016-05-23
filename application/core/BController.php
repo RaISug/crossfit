@@ -11,7 +11,7 @@ class BController extends CI_Controller {
      * равно на $config['log_threshold'] = 2; 
      * 2 е индикатор за debug режим
      */
-
+	
     public function __construct() {
         parent::__construct();
         $this->data = array();
@@ -84,7 +84,7 @@ class BController extends CI_Controller {
         
     }
 
-    function _isUserLogged() {
+    function _isUserLoggedIn() {
         if ($this->session->userdata('user_id') === FALSE) {
             return FALSE;
         } else if ($this->session->userdata('user_id') === NULL) {
@@ -93,8 +93,8 @@ class BController extends CI_Controller {
         return TRUE;
     }
     
-    function _showLoginPage() {
-    	redirect(base_url("login"));
+    function _showLoginPage($originPath = "") {
+    	redirect(base_url("login" . ($originPath === "" ? "" : "?origin=" . $originPath)));
     }
     
     function _isClient() {
