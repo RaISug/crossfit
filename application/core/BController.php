@@ -3,6 +3,8 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+//TODO: Move all functions that are not used for request processing
+    
 class BController extends CI_Controller {
 	
     /*
@@ -15,6 +17,7 @@ class BController extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->data = array();
+        $this->data["debugMessage"] = "";
         $this->data['is_debug_enabled'] = FALSE;
         $this->data['is_profiler_enabled'] = FALSE;
         $this->data['userRole'] = $this->session->userdata('role_id');
@@ -93,22 +96,33 @@ class BController extends CI_Controller {
         return TRUE;
     }
     
-    function _showLoginPage($originPath = "") {
-    	redirect(base_url("login" . ($originPath === "" ? "" : "?origin=" . $originPath)));
+    function _showLoginPage($originPath = "", $originQueryString = "") {
+    	if ($originPath === "") {
+    		redirect(base_url("login"));
+    	} else if ($originQueryString === "") {
+    		redirect(base_url("login?originPath=" . $originPath));
+    	} else {
+    		redirect(base_url("login?originPath=" . $originPath . "&originQueryString=(" . $originQueryString . ")"));
+    	}
     }
     
     function _isClient() {
-        if ($this->session->userdata('role_id') === '0') {
-            return TRUE;
-        }
-        return FALSE;
+        return $this->session->userdata('role_id') === '0';
     }
 
     function _isAdmin() {
-        if ($this->session->userdata('role_id') === '1') {
-            return TRUE;
-        }
-        return FALSE;
+        return $this->session->userdata('role_id') === '1';
+    }
+    
+    function _extractQueryString($originQueryString) {
+    	if ($originQueryString === NULL) {
+    		return "";
+    	}
+    
+    	$queryString = str_replace("(", "", $originQueryString);
+    	$queryString = str_replace(")", "", $queryString);
+    
+    	return $queryString;
     }
 
 }

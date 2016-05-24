@@ -53,7 +53,8 @@
 
 	<div class="container">
 
-		<form class="form-signin" method="POST" action="<?php echo base_url("login"); ?>">
+		<?php $queryString = isset($queryString) && $queryString !== NULL ? "?" . $queryString : ""; ?>
+		<form class="form-signin" method="POST" action="<?php echo base_url("login" . $queryString); ?>">
 			<h2 class="form-signin-heading">Вход в системата</h2>
 
 			<label for="email" class="sr-only">Емайл адрес</label>

@@ -4,17 +4,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login extends BController {
 	
-	private $_origin = NULL;
-	
 	function __construct() {
 		parent::__construct();
-		$this->data["debugMessage"] = "(Login) Login attempt";
 	}
 	
 	public function index() {
-		if ($this->input->get("origin") !== NULL && $this->input->get("origin") !== "") {
-			$this->_origin = $this->input->get("origin");
-		}
 		$this->_startRequestProcessing();
 	}
 	
@@ -31,15 +25,26 @@ class Login extends BController {
 		$this->load->view("vlogin", $this->data);
 	}
 	
+	function _additionalViewData() {
+		$this->data["queryString"] = $_SERVER['QUERY_STRING'];
+	}
+	
 	function _processRequest() {
 		$email =  $this->input->post("email");
 		$password = $this->input->post("password");
 		
 		if ($this->musers->isEmailAndPasswordCorrect($email, $password)) {
-			return redirect(base_url($this->_origin));
+			$originPath = $this->input->get("originPath");
+			
+			$originQueryString = $this->input->get("originQueryString");
+			$queryString = $this->_extractQueryString($originQueryString);
+			
+			$redirectPath = $originPath !== NULL ? ($originPath . "?" . $queryString) : "";
+			return redirect(base_url($redirectPath));
 		}
 		$this->data["errorMessage"] = "Неуспешен вход. Грешен емайл или парола";
 		
 		$this->_loadView();
 	}
+	
 }

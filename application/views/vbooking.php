@@ -60,13 +60,14 @@
 			<div class="content_body">
 				<div class="warning-message">
 				 	<span class="fa fa-warning"></span>Внимание. Моля когато нямате възможност да присъствате да се отпишите от часа, така че някой
-		 			друг, който иска да присъства да се запише.
+		 			друг, който иска да присъства да може да се запише.
 				</div>
 				
 				<div class="booking-form">
 					<h3 align="center">За да се запишите моля натиснете бутона:</h3>
 					<form method="POST" action="<?php echo base_url("booking"); ?>" align="center">
-						<button class="booking-button" type="submit">Записване</button>
+						<input type="hidden" name="scheduleId" value="<?php echo $scheduleId; ?>">
+						<button class="booking-button" type="submit"><?php echo $isTrainingBooked ? "Отписване" : "Записване" ?></button>
 					</form>
 				</div>
 			</div>
