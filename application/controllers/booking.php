@@ -12,16 +12,20 @@ class Booking extends BController {
 	
 	public function index() {
 		if ($this->_isUserLoggedIn() === FALSE) {
-			$queryString = $_SERVER['QUERY_STRING'];
+			$queryString = $this->security->xss_clean($_SERVER['QUERY_STRING']);
 		 	return $this->_showLoginPage("booking", $queryString);
-		} else if ($this->_isDirectAccess()) {
-			//TODO: redirect to some page or return error
+		} else if ($this->_isDirectAccess() && $this->_isPostRequest() === FALSE) {
+			return redirect(base_url("schedule"));
 		}
 		$this->_startRequestProcessing();
 	}
 
 	private function _isDirectAccess() {
-		//TODO: check presence of schedule param
+		return $this->input->get("schedule") === NULL;
+	}
+	
+	private function _isPostRequest() {
+		return $this->input->post("schedule") !== NULL;
 	}
 	
 	function _loadModelsAndLibraries() {
@@ -33,7 +37,7 @@ class Booking extends BController {
 	}
 	
 	function _additionalViewData() {
-		$scheduleId = $this->input->get("schedule");
+		$scheduleId = $this->security->xss_clean($this->input->get("schedule"));
 		$userId = $this->session->userdata("user_id");
 		
 		$bookings = $this->mbookings->byScheduleAndUserId($scheduleId, $userId);
@@ -41,21 +45,52 @@ class Booking extends BController {
 		$this->data["scheduleId"] = $scheduleId;
 		$this->data["isTrainingBooked"] = empty($bookings) === FALSE;
 	}
+
+	function _validationRules() {
+		$this->form_validation->set_rules('schedule', "График", 'required|trim|numeric');
+	}
+	
+	function _errorMessages() {
+        $this->form_validation->set_message('required', 'Полете задължително трябва да бъде попълнено');
+        $this->form_validation->set_message('numeric', 'Не може да въвеждате символи.');
+	}
 	
 	function _processRequest() {
-		$scheduleId = $this->input->get("schedule");
+		$scheduleId = $this->security->xss_clean($this->input->post("schedule"));
 		$userId = $this->session->userdata("user_id");
 		
+		$bookings = $this->mbookings->byScheduleAndUserId($scheduleId, $userId);
+		
+		if (empty($bookings)) {
+			return $this->_bookTraining($scheduleId, $userId);
+		}
+		
+		$this->_discardBooking($scheduleId, $userId);
+	}
+	
+	function _bookTraining($scheduleId, $userId) {
 		$persistData = array(
-			"user_id" => $userId,
-			"schedule_id" => $scheduleId
+				"user_id" => $userId,
+				"schedule_id" => $scheduleId
 		);
 		
 		try {
 			$this->mbookings->persist($persistData);
-			redirect(base_url("schedule?success"));
+			redirect(base_url("schedule"));
 		} catch (Exception $exception) {
-            $this->data["persistance_error"] = "Неуспешно записване";
+			$this->data["errorMessage"] = $exception->getMessage();
+			$this->_logRequest($exception->getMessage());
+			$this->_loadView();
+		}
+	}
+	
+	function _discardBooking($scheduleId, $userId) {
+		try {
+			$this->mbookings->deleteByScheduleIdAndUserId($scheduleId, $userId);
+			redirect(base_url("schedule"));
+		} catch (Exception $exception) {
+			$this->data["errorMessage"] = $exception->getMessage();
+			$this->_logRequest($exception->getMessage());
 			$this->_loadView();
 		}
 	}

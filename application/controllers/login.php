@@ -21,29 +21,34 @@ class Login extends BController {
 		$this->form_validation->set_rules('password', "Описание", 'required|trim');
 	}
 	
+	function _errorMessages() {
+		$this->form_validation->set_message('required', 'Полете задължително трябва да бъде попълнено.');
+		$this->form_validation->set_message('valid_email', 'Емайл адреса трябва да е валиден.');
+	}
+	
 	function _loadView() {
 		$this->load->view("vlogin", $this->data);
 	}
 	
 	function _additionalViewData() {
-		$this->data["queryString"] = $_SERVER['QUERY_STRING'];
+		$this->data["queryString"] = $this->security->xss_clean($_SERVER['QUERY_STRING']);
 	}
 	
 	function _processRequest() {
-		$email =  $this->input->post("email");
-		$password = $this->input->post("password");
+		$email =  $this->security->xss_clean($this->input->post("email"));
+		$password = $this->security->xss_clean($this->input->post("password"));
 		
 		if ($this->musers->isEmailAndPasswordCorrect($email, $password)) {
-			$originPath = $this->input->get("originPath");
+			$originPath = $this->security->xss_clean($this->input->get("originPath"));
 			
-			$originQueryString = $this->input->get("originQueryString");
+			$originQueryString = $this->security->xss_clean($this->input->get("originQueryString"));
 			$queryString = $this->_extractQueryString($originQueryString);
 			
 			$redirectPath = $originPath !== NULL ? ($originPath . "?" . $queryString) : "";
 			return redirect(base_url($redirectPath));
 		}
-		$this->data["errorMessage"] = "Неуспешен вход. Грешен емайл или парола";
 		
+		$this->data["errorMessage"] = "Неуспешен вход. Грешен емайл или парола";
 		$this->_loadView();
 	}
 	

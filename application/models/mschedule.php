@@ -1,6 +1,28 @@
 <?php
 
 class MSchedule extends CI_Model {
+
+	public function persist($scheduleData) {
+		$this->db->trans_begin();
+		$this->db->insert('schedules', $scheduleData);
+		
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			throw new Exception('Неуспешен запис на данните.');
+		}
+		$this->db->trans_commit();
+	}
+	
+	public function deleteById($scheduleId) {
+		$this->db->trans_begin();
+		$this->db->where("id", $scheduleId)->delete('schedules');
+		
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			throw new Exception('Неуспешено изтриване на данните.');
+		}
+		$this->db->trans_commit();
+	}
 	
 	public function forTheNextSevenDays() {
 		$query = "SELECT schedules.id, training_types.name, trainings.seats_count,"
