@@ -30,4 +30,25 @@ class MUsers extends CI_Model {
 		return FALSE;
 	}
 	
+	public function registrate($email, $password, $firstName, $lastName, $roleId) {
+		$password = $this->bcrypt->hash_password($password);
+		
+		$registrationData = array(
+				"email" => $email,
+				"password" => $password,
+				"first_name" => $firstName,
+				"last_name" => $lastName,
+				"role_id" => $roleId
+		);
+		
+		$this->db->trans_begin();
+		$this->db->insert('users', $registrationData);
+		
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			throw new Exception('Неуспешен запис на данните.');
+		}
+		$this->db->trans_commit();
+	}
+	
 }

@@ -68,19 +68,19 @@
 			<h2 class="form-registration-heading">Регистрация</h2>
 
 			<label for="email" class="sr-only">Емайл адрес</label>
-			<input type="email" class="form-control" placeholder="Емайл адрес" required autofocus>
+			<input type="email" class="form-control" name="email" placeholder="Емайл адрес" required autofocus>
 			
 			<label for="password" class="sr-only">Парола</label>
-			<input type="password" class="form-control" placeholder="Парола" required>
+			<input type="password" class="form-control" name="password" placeholder="Парола" required>
 			
-			<label for="password" class="sr-only">Повторете парола</label>
-			<input type="password" class="form-control" placeholder="Повторете паролата" required>
+			<label for="r_password" class="sr-only">Повторете парола</label>
+			<input type="password" class="form-control" name="r_password" placeholder="Повторете паролата" required>
 			
-			<label for="text" class="sr-only">Име</label>
-			<input type="text" class="form-control" placeholder="Име" required autofocus>
+			<label for="firstName" class="sr-only">Име</label>
+			<input type="text" class="form-control" name="firstName" placeholder="Име" required autofocus>
 			
-			<label for="text" class="sr-only">Фамилия</label>
-			<input type="text" class="form-control" placeholder="Фамилия" required autofocus>
+			<label for="lastName" class="sr-only">Фамилия</label>
+			<input type="text" class="form-control" name="lastName" placeholder="Фамилия" required autofocus>
 
 			<button class="btn btn-lg btn-primary btn-block form-button" type="submit">Регистрация</button>
 		</form>
