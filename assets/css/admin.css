@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+}
+#wrapper {
+    min-height:100%;
+    position:relative;
+}
+
+#content {
+    padding:10px;
+    padding-bottom:150px;   /* Height of the footer element */
+}
+
+#footer {
+    background: #333;
+    width:100%;
+    position: absolute;
+    color: #eee;
+    padding: 20px;
+    height: 150px;
+    bottom:0;
+}
+
+ul.unstyled {
+    list-style: none;
+    padding: 0px;
+}
+
+nav.loginPageNavbar {
+    background: #333;
+}
+
+.has-error {
+    color : red;
+    text-align: center;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.nav-pills > li:hover {
+  color: #fff;
+  background-color: #337ab7;
+}
+.datepicker{z-index:1151;}
+.datepicker.dropdown-menu {z-index:1151;}
