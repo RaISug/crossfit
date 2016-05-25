@@ -2,20 +2,21 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Schedule extends CI_Controller {
-
-	public function __construct() {
-		parent::__construct();
-
-		$this->data = array();
-		$this->_loadModels();
+class Schedule extends BController {
+	
+	public function index() {
+		$this->_startRequestProcessing();
 	}
 	
-	function _loadModels() {
+	function _loadModelsAndLibraries() {
 		$this->load->model("mschedule");
 	}
 	
-	public function index() {
+	function _isValidRequest() {
+		return TRUE;
+	}
+	
+	public function _processRequest() {
 		$schedules = array();
 		for ($interval = 0 ; $interval < 7 ; $interval++) {
 			$dailySchedules = $this->mschedule->byDate($this->_getTheDateAfterNDays($interval));

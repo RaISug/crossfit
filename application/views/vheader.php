@@ -66,6 +66,12 @@
 						<li class="<?php ifPageIsSelectedMarkItAsActive("home") ?>"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
 						<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
 						<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
+						<?php if ($isUserLoggedIn === FALSE) { ?>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>">Вход</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>">Регистрация</a></li>
+						<?php } else { ?>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("logout") ?>"><a href="<?php echo base_url("logout"); ?>">Изход</a></li>
+						<?php } ?>
 					</ul>
 				</div>
 			</div>

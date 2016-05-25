@@ -2,10 +2,10 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends BController {
 
 	public function index() {
-		$this->load->view('vhome');
+		$this->load->view('vhome', $this->data);
 	}
 
 }

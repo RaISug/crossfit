@@ -20,6 +20,7 @@ class BController extends CI_Controller {
         $this->data["debugMessage"] = "";
         $this->data['is_debug_enabled'] = FALSE;
         $this->data['is_profiler_enabled'] = FALSE;
+        $this->data['isUserLoggedIn'] = $this->_isUserLoggedIn();
         $this->data['userRole'] = $this->session->userdata('role_id');
         $this->data['currentlyLoggedUser'] = $this->session->userdata('user_id');
         $this->_loadModelsAndLibraries();
