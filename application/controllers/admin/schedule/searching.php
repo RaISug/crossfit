@@ -6,7 +6,7 @@ class Searching extends BController {
 	
 	public function index() {
 		if ($this->_isUserLoggedIn() === FALSE || $this->_isAdmin() === FALSE) {
-			return redirect("login");
+			return redirect("errors/forbidden");
 		}
 		$this->_startRequestProcessing();
 	}
