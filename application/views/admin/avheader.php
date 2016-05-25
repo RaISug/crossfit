@@ -38,7 +38,7 @@
 			            </div>
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			                <ul class="nav navbar-nav">
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/schedule/creation');?>">
+			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/schedule');?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Графици <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/schedule/creation'); ?>>Създаване</a></li>
@@ -56,6 +56,10 @@
 
 	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/participants'); ?>">
 	                		        <a href=<?php echo base_url('admin/participants'); ?>>Списък с присъстващи</a>
+	      			            </li>
+	      			            
+	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/training/types'); ?>">
+	                		        <a href=<?php echo base_url('admin/training/types/creation'); ?>>Типове тренировки</a>
 	      			            </li>
 			                </ul>
 	
