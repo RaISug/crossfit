@@ -2,10 +2,10 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Home extends CI_Controller {
 
 	public function index() {
-		$this->load->view('vadmin');
+		$this->load->view('admin/vhome');
 	}
 
 }

@@ -1,6 +1,6 @@
 <?php 
 
-	include 'admin/avheader.php';	
+	include 'avheader.php';	
 
 ?>
 
@@ -10,6 +10,6 @@
 	
 <?php
 	
-	include 'admin/avfooter.php';
+	include 'avfooter.php';
 	
 ?>
