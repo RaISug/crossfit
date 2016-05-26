@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class DBInitializer {
+class Dbinitializer {
 
     private $CI;
 
@@ -63,7 +63,7 @@ class DBInitializer {
                     "`id` int(11) NOT NULL AUTO_INCREMENT," .
                     "`user_id` int(11) NOT NULL," .
                     "`schedule_id` int(11) NOT NULL," .
-                    "PRIMARY KEY (`id`)," .
+                    "PRIMARY KEY (`id`)" .
                     ") ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1";
             
             $this->CI->db->trans_begin();
