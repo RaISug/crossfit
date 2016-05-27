@@ -64,6 +64,12 @@
 			<div class="clear"></div>
 		</div>
 	</div>
+	<script type="text/javascript">
+	
+		setInterval(function() {
+		 	document.getElementsByClassName("nivo-nextNav")[0].click();
+	  	}, 5000);
 
+	</script>
 </body>
 </html>
