@@ -24,7 +24,7 @@ class Deletion extends BController {
 	}
 	
 	function _validationRules() {
-		$this->form_validation->set_rules('albumId', "Тренировка", 'required|numeric');
+		$this->form_validation->set_rules('id', "Тренировка", 'required|numeric');
 	}
 	
 	function _errorMessages() {
@@ -33,7 +33,7 @@ class Deletion extends BController {
 	}
 	
 	function _processRequest() {
-		$albumId = $this->security->xss_clean($this->input->post("albumId"));
+		$albumId = $this->security->xss_clean($this->input->post("id"));
 		
 		try {
 			$this->malbums->deleteById($albumId);
