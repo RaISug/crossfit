@@ -33,6 +33,7 @@ class BController extends CI_Controller {
     public function _startRequestProcessing() {
         if ($this->_isUserInRole() === FALSE) {
         	redirect(base_url("forbidden"));
+        	exit;
         }
         
         $this->_validationRules();
