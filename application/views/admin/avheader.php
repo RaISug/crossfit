@@ -1,7 +1,12 @@
 <?php 
 
-	function markPageAsSelectedIfTheCurrentPageStartsWith($page) {
-		echo strpos(uri_string(), $page) !== FALSE ? "active" : "";
+	function markPageAsSelectedIfTheCurrentPageStartsWith($pages) {
+		foreach ($pages as $page) {
+			if (strpos(uri_string(), $page) !== FALSE) {
+				return "active";
+			}
+		}
+		return "";
 	}
 
 ?>
@@ -38,7 +43,7 @@
 			            </div>
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			                <ul class="nav navbar-nav">
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/schedule');?>">
+			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/schedule'));?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Графици <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/schedule/creation'); ?>>Създаване</a></li>
@@ -46,7 +51,7 @@
 			                        </ul>
 			                    </li>
 			                    
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/training/creation');?>">
+			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/training'));?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Тренировки <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/training/creation'); ?>>Създаване</a></li>
@@ -54,11 +59,21 @@
 			                        </ul>
 			                    </li>
 
-	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/participants'); ?>">
+			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/galery', 'admin/album')); ?>">
+			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Галерия <span class="caret"></span></a>
+			                        <ul class="dropdown-menu" role="menu">
+			                            <li><a href=<?php echo base_url('admin/album/creation'); ?>>Създаване на албум</a></li>
+			                            <li><a href=<?php echo base_url('admin/album/deletion'); ?>>Изтриване на албум</a></li>
+			                            <li><a href=<?php echo base_url('admin/galery/creation'); ?>>Добавяне на снимка</a></li>
+			                            <li><a href=<?php echo base_url('admin/galery/searching'); ?>>Изтриване на снимка</a></li>
+			                        </ul>
+			                    </li>
+			                    
+	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/participants')); ?>">
 	                		        <a href=<?php echo base_url('admin/participants'); ?>>Списък с присъстващи</a>
 	      			            </li>
 	      			            
-	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith('admin/training/types'); ?>">
+	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/training/types')); ?>">
 	                		        <a href=<?php echo base_url('admin/training/types/creation'); ?>>Типове тренировки</a>
 	      			            </li>
 			                </ul>

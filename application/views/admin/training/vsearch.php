@@ -19,7 +19,7 @@
 	            </div>
 	        </div>
 	        <div class="form-group">
-	            <button type="submit" class="btn btn-defualt"><span class="glyphicon glyphicon-search"></span></button>
+	            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 	        </div>
 	    </form>
 	</div>
