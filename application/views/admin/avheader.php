@@ -64,8 +64,8 @@
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/album/creation'); ?>>Създаване на албум</a></li>
 			                            <li><a href=<?php echo base_url('admin/album/deletion'); ?>>Изтриване на албум</a></li>
-			                            <li><a href=<?php echo base_url('admin/galery/creation'); ?>>Добавяне на снимка</a></li>
-			                            <li><a href=<?php echo base_url('admin/galery/searching'); ?>>Изтриване на снимка</a></li>
+			                            <li><a href=<?php echo base_url('admin/galery/creation'); ?>>Добавяне на файл</a></li>
+			                            <li><a href=<?php echo base_url('admin/galery/searching'); ?>>Изтриване на файл</a></li>
 			                        </ul>
 			                    </li>
 			                    

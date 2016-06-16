@@ -20,7 +20,7 @@ class Creation extends BController {
 	}
 	
 	function _validationRules() {
-		$this->form_validation->set_rules('name', "Тренировка", 'required|trim|is_unique[albums.name]');
+		$this->form_validation->set_rules('name', "Име", 'required|trim|is_unique[albums.name]');
 	}
 	
 	function _errorMessages() {

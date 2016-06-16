@@ -24,7 +24,7 @@ class Deletion extends BController {
 	}
 	
 	function _validationRules() {
-		$this->form_validation->set_rules('id', "Тренировка", 'required|numeric');
+		$this->form_validation->set_rules('id', "Албум", 'required|numeric');
 	}
 	
 	function _errorMessages() {
