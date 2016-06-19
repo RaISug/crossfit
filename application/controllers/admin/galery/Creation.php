@@ -20,36 +20,40 @@ class Creation extends BController {
 		$this->load->view("admin/galery/vcreate", $this->data);
 	}
 	
+	function _additionalViewData() {
+		$this->data['albums'] = $this->malbums->findAll();
+	}
+	
 	function _validationRules() {
-// 		$this->form_validation->set_rules('training', "Тренировка", 'required|trim|numeric');
-// 		$this->form_validation->set_rules('schedule_date', "Дата", 'required|trim');
-// 		$this->form_validation->set_rules('schedule_time', "Час", 'required|trim');
+		$this->form_validation->set_rules('album_id', "Албум", 'required|trim');
+		$this->form_validation->set_rules('file_type', "Вид на файла", 'required|trim');
+		$this->form_validation->set_rules('file', "Файл", 'required|trim');
+		$this->form_validation->set_rules('description', "Час", 'trim');
 	}
 	
 	function _errorMessages() {
-// 		$this->form_validation->set_message('required', 'Полете задължително трябва да бъде попълнено');
-// 		$this->form_validation->set_message('numeric', 'Не може да въвеждате символи.');
+		$this->form_validation->set_message('required', "Полете '%s' задължително трябва да бъде попълнено");
+		$this->form_validation->set_message('numeric', "Полето '%s', не може да съдържа символи.");
 	}
 	
 	function _processRequest() {
-// 		$trainingId= $this->security->xss_clean($this->input->post("training"));
-// 		$date = $this->security->xss_clean($this->input->post("schedule_date"));
-// 		$time = $this->security->xss_clean($this->input->post("schedule_time"));
+		$albumId = $this->security->xss_clean($this->input->post("album_id"));
+		$fileType = $this->security->xss_clean($this->input->post("file_type"));
+		$description = $this->security->xss_clean($this->input->post("description"));
 		
-// 		$dateTime = date($date . " " . $time . ":00");
-
-// 		$scheduleData = array(
-// 			"training_id" => $trainingId,
-// 			"training_date" => $dateTime
-// 		);
+		$galeryData = array(
+			"album_id" => $albumId,
+			"description" => $description,
+			"file_type" => $fileType
+		);
 		
-// 		try {
-// 			$this->mschedule->persist($scheduleData);
-// 			redirect(base_url("admin/schedule/creation"));
-// 		} catch (Exception $exception) {
-// 			$this->data["errorMessage"] = $exception->getMessage();
-// 			$this->_logRequest($exception->getMessage());
-// 			$this->_loadView();
-// 		}
+		try {
+			$this->mgalery->persist($galeryData);
+			redirect(base_url("admin/galery/creation"));
+		} catch (Exception $exception) {
+			$this->data["errorMessage"] = $exception->getMessage();
+			$this->_logRequest($exception->getMessage());
+			$this->_loadView();
+		}
 	}
 }

@@ -2,6 +2,9 @@
 
 	include '/../avheader.php';	
 
+	if (isset($noResultsFound)) {
+		echo "<p style='text-align: center; color: red;'>$noResultsFound</p>";
+	}
 ?>
 
 	<div class="container">
@@ -35,10 +38,6 @@
 	</div>
 	
 <?php 
-
-	if (isset($noResultsFound)) {
-		echo "<p style='text-align: center; color: red;'>$noResultsFound</p>";
-	}
 	
 	if (isset($galeryFiles)) {
 		for ($i = 0 ; $i < count($galeryFiles) ; $i++) { 

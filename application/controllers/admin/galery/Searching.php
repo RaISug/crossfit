@@ -36,7 +36,7 @@ class Searching extends BController {
 	
 	function _processRequest() {
 		$albumId = $this->input->post("albumId");
-		if ($scheduleDate === NULL) {
+		if ($albumId === NULL) {
 			return $this->_loadView();
 		}
 		
