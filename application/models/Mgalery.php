@@ -82,7 +82,7 @@ class MGalery extends CI_Model {
 	}
 	
 	public function byAlbumAndFileTypeId($albumId, $fileTypeId) {
-		return $this->db->where("album_id", $albumId)->where("file_type", $fileTypeId)->get("galery")->result_object();
+		return $this->db->where("album_id", $albumId)->where("file_type", $fileTypeId)->get("galery")->result_array();
 	}
 	
 }

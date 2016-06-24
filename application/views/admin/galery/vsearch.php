@@ -36,29 +36,45 @@
 	        </div>
 	    </form>
 	</div>
-	
+	<div class="container">
 <?php 
 	
 	if (isset($galeryFiles)) {
 		for ($i = 0 ; $i < count($galeryFiles) ; $i++) { 
 			?>
-			<div class="col-sm-6 col-md-3">
+			<div class="col-sm-6 col-md-3" style="margin-top: 50px; margin-bottom: 50px">
 				<div class="thumbnail">
-					<img src="<?php echo base_url("assets/files/" . $galeryFiles[$i]->file_name);  ?>" alt="<?php echo $galeryFiles[$i]->file_type; ?>">
+					<?php 
+				  		if ($galeryFiles[$i]['file_type'] === 'video') { ?>
+				  			<div align="center" class="embed-responsive embed-responsive-16by9">
+								<video class="embed-responsive-item" class="col-sm-6 col-md-3" controls>
+								  	<source src="<?php echo base_url("assets/files/" . $galeryFiles[$i]['file_name']);  ?>" type="video/mp4">
+								</video>
+							</div>
+				  	<?php
+						 } else { ?>
+				  			<img src="<?php echo base_url("assets/files/" . $galeryFiles[$i]['file_name']);  ?>" alt="<?php echo $galeryFiles[$i]['file_type']; ?>">		
+				  	<?php 
+			  			 } ?>
 					<div class="caption" align="center">
-						<p class="ellipsis">Вид на файла: <?php echo $galeryFiles[$i]->training_type; ?></p>
-						<p class="ellipsis">Албум: <?php echo $galeryFiles[$i]->training_date; ?></p>
+						<p class="ellipsis">Вид на файла: <?php echo $galeryFiles[$i]['file_type']; ?></p>
+						<p class="ellipsis">Албум: <?php echo $galeryFiles[$i]['album_id']; ?></p>
 	                    <form method="POST" action="<?php echo base_url("admin/galery/deletion"); ?>">
-	                    	<input type="hidden" name="id" value="<?php echo $galeryFiles[$i]->id; ?>"/>
+	                    	<input type="hidden" name="id" value="<?php echo $galeryFiles[$i]['id']; ?>"/>
 	                    	<button class="btn btn-primary" type="submit">Изтрии</button>
 	                    </form>
 	                </div>
 	            </div>
-	        </div>	
+	        </div>
 			<?php 
 		}
-	}
+	}	
+?>
 	
+	</div>
+	
+<?php 
+
 	include '/../avfooter.php';	
 
 ?>

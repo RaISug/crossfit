@@ -42,8 +42,8 @@ class Searching extends BController {
 		
 		$albumId = $this->security->xss_clean($albumId);
 		$fileTypeId = $this->security->xss_clean($this->input->post("fileTypeId"));
-		
-		$galeryFiles = $this->mgalery->byAlbumAndFileTypeId($albumId, $fileTypeId);
+
+		$galeryFiles = $this->mgalery->byAlbumAndFileTypeId($albumId, $fileTypeId === "1" ? 'image' : 'video');
 		
 		if (empty($galeryFiles)) {
 			$this->data["noResultsFound"] = "Няма намерени резултати за търсената от вас данни.";
