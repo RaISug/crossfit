@@ -4,7 +4,8 @@
 
 ?>
 	<div class="container">
-	    <form class="form-horizontal" method="POST" action=<?php echo base_url("admin/galery/creation"); ?>>
+		<p class="has-error"><?php if (isset($errorMessage)) { echo $errorMessage; } ?></p>
+	    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="<?php echo base_url("admin/galery/creation"); ?>">
 	        <div class="has-error"><?php echo form_error('file_type'); ?></div>
 	        <div class="form-group">
 	            <label for="file_type" class="col-sm-4 control-label">Вид на файла:</label>

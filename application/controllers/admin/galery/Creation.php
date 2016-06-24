@@ -27,7 +27,6 @@ class Creation extends BController {
 	function _validationRules() {
 		$this->form_validation->set_rules('album_id', "Албум", 'required|trim');
 		$this->form_validation->set_rules('file_type', "Вид на файла", 'required|trim');
-		$this->form_validation->set_rules('file', "Файл", 'required|trim');
 		$this->form_validation->set_rules('description', "Час", 'trim');
 	}
 	
