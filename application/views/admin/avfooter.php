@@ -35,8 +35,25 @@
 
             </div>
         </div>
+        
         <script src="<?php echo base_url("assets/js/jquery/jquery-2.1.3.min.js"); ?>"></script>
         <script src="<?php echo base_url("assets/js/jquery/jquery-ui.min.js"); ?>"></script>
         <script src="<?php echo base_url("assets/js/bootstrap/bootstrap.min.js"); ?>"></script>
+        <script src="<?php echo base_url("assets/js/summernote/summernote.min.js"); ?>"></script>
+        
+        <?php 
+			if (strpos(uri_string(), 'admin/news/creation') !== FALSE) {
+				echo "<script>
+            			$(document).ready(function() {
+            				$('#news').summernote({
+            					height: 250,
+						        onKeyup: function(e) {
+						           //$('#product_desc_l').html($(this).code());
+						        }
+            				}); 
+						});
+            		 </script>";
+			}
+        ?>
     </body>
 </html>

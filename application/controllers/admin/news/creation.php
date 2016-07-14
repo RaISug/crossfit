@@ -27,12 +27,12 @@ class Creation extends BController {
 	
 	function _errorMessages() {
 		$this->form_validation->set_message('required', 'Полете задължително трябва да бъде попълнено');
-		$this->form_validation->set_message('is_unique', 'Вече съществува албум с това име');
+		$this->form_validation->set_message('is_unique', 'Вече съществува заглавие с това име');
 	}
 	
 	function _processRequest() {
+		$content = $this->input->post("content");
 		$title = $this->security->xss_clean($this->input->post("title"));
-		$content = $this->security->xss_clean($this->input->post("content"));
 		$newsDate = $this->security->xss_clean($this->input->post("news_date"));
 		
 		$newsData = array(
@@ -42,7 +42,7 @@ class Creation extends BController {
 		);
 		
 		try {
-			$this->malbums->persist($newsData);
+			$this->mnews->persist($newsData);
 			redirect(base_url("admin/news/creation"));
 		} catch (Exception $exception) {
 			$this->data["errorMessage"] = $exception->getMessage();

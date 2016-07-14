@@ -1,6 +1,6 @@
 <?php 
 
-	include '/../avheader.php';	
+	include VIEWPATH . '/admin/avheader.php';	
 
 ?>
 	<div class="container">
@@ -54,6 +54,6 @@
 
 <?php 
 
-	include '/../avfooter.php';	
+	include VIEWPATH . '/admin/avfooter.php';	
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-	include '/../avheader.php';	
+	include VIEWPATH . '/admin/avheader.php';	
 
 	echo "<p style='text-align: center; color: red;'>" . form_error("schedule") . "</p>";
 	
@@ -13,6 +13,6 @@
 		echo "<p style='text-align: center; color: red;'>$successMessage</p>";
 	}
 	
-	include '/../avfooter.php';	
+	include VIEWPATH . '/admin/avfooter.php';	
 
 ?>

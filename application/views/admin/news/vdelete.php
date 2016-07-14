@@ -15,14 +15,14 @@
 		}
 ?>
 	
-		<form class="form-vertical col-sm-offset-4" action="<?php echo base_url("admin/album/deletion"); ?>" method="POST">
+		<form class="form-vertical col-sm-offset-2" action="<?php echo base_url("admin/news/deletion"); ?>" method="POST">
 	        <div class="has-error"><?php echo form_error('id'); ?></div>
 	        <div class="form-group" >
-	            <div class="col-sm-4">
+	            <div class="col-sm-8">
 	                <select name="id" class="form-control"> 
 	                    <?php
-	                        for ($i = 0 ; $i < count($albums) ; $i++) {
-	                            echo "<option value='". $albums[$i]['id'] ."'>". $albums[$i]['name'] ."</option>";
+	                        for ($i = 0 ; $i < count($news) ; $i++) {
+	                            echo "<option value='". $news[$i]['id'] ."'>". $news[$i]['title'] ."</option>";
 	                        }
 	                    ?>
 	                </select>

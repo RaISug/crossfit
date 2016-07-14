@@ -1,6 +1,6 @@
 <?php 
 
-	include '/../avheader.php';	
+	include VIEWPATH . '/admin/avheader.php';	
 
 	if (isset($noResultsFound)) {
 		echo "<p style='text-align: center; color: red;'>$noResultsFound</p>";
@@ -75,6 +75,6 @@
 	
 <?php 
 
-	include '/../avfooter.php';	
+	include VIEWPATH . '/admin/avfooter.php';	
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-	include '/../avheader.php';	
+	include VIEWPATH . '/admin/avheader.php';	
 
 ?>
 
@@ -45,6 +45,6 @@
 		}
 	}
 	
-	include '/../avfooter.php';	
+	include VIEWPATH . '/admin/avfooter.php';	
 
 ?>

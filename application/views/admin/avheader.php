@@ -23,6 +23,7 @@
 
     <link href="<?php echo base_url("assets/css/bootstrap/bootstrap.min.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/jquery/jquery-ui.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("assets/css/summernote/summernote.css"); ?>" rel="stylesheet">
     <link href="<?php echo base_url("assets/css/admin.css"); ?>" rel="stylesheet">
 
   </head>
@@ -66,6 +67,14 @@
 			                            <li><a href=<?php echo base_url('admin/album/deletion'); ?>>Изтриване на албум</a></li>
 			                            <li><a href=<?php echo base_url('admin/galery/creation'); ?>>Добавяне на файл</a></li>
 			                            <li><a href=<?php echo base_url('admin/galery/searching'); ?>>Изтриване на файл</a></li>
+			                        </ul>
+			                    </li>
+			                    
+			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/news')); ?>">
+			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Новини <span class="caret"></span></a>
+			                        <ul class="dropdown-menu" role="menu">
+			                            <li><a href=<?php echo base_url('admin/news/creation'); ?>>Създаване</a></li>
+			                            <li><a href=<?php echo base_url('admin/news/deletion'); ?>>Изтриване</a></li>
 			                        </ul>
 			                    </li>
 			                    
