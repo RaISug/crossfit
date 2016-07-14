@@ -21,9 +21,13 @@ class MNews extends CI_Model {
 		return $this->db->get('news')->result_array();
 	}
 	
-	public function deleteById($albumId) {
+	public function findById($newsId) {
+		return $this->db->where("id", $newsId)->get("news")->result_array();
+	}
+	
+	public function deleteById($newsId) {
 		$this->db->trans_begin();
-		$this->db->where("id", $albumId)->delete("news");
+		$this->db->where("id", $newsId)->delete("news");
 		
 		if ($this->db->trans_status() === FALSE) {
 			$this->db->trans_rollback();
@@ -32,9 +36,9 @@ class MNews extends CI_Model {
 		$this->db->trans_commit();
 	}
 	
-	public function deleteByName($albumName) {
+	public function deleteByName($newsTitle) {
         $this->db->trans_begin();
-        $this->db->where("title", $albumName)->delete('news');
+        $this->db->where("title", $newsTitle)->delete('news');
         
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();

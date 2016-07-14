@@ -13,6 +13,10 @@ class News extends BController {
 		$this->_startRequestProcessing();
 	}
 
+	function _isValidRequest() {
+		return $this->input->get("id") !== NULL;
+	}
+	
 	function _loadModelsAndLibraries() {
 		$this->load->model("mnews");
 	}
@@ -25,4 +29,16 @@ class News extends BController {
 		$this->data["news"] = $this->mnews->findAll();
 	}
 	
+	function _processRequest() {
+		$newsId = $this->security->xss_clean($this->input->get("id"));
+		
+		try {
+			$this->data['selectedNews'] = $this->mnews->findById($newsId);
+		} catch (Exception $exception) {
+			$this->data["errorMessage"] = $exception->getMessage();
+			$this->_logRequest($exception->getMessage());
+		}
+		
+		$this->_loadView();
+	}
 }
