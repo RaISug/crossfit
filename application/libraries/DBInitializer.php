@@ -20,6 +20,9 @@ class Dbinitializer {
         $this->_createSchedulesTable();
         $this->_createTrainingsTable();
         $this->_createTrainingTypesTable();
+        $this->_createAlbumsTable();
+        $this->_createGaleryTable();
+        $this->_createNewsTable();
  }
 
     private function _createUsersTable() {
@@ -49,10 +52,10 @@ class Dbinitializer {
     }
 
     private function _insertAdminInDb() {
-        $password = $this->CI->bcrypt->hash_password('some_password');
+        $password = $this->CI->bcrypt->hash_password('123456');
         
         $query = "INSERT INTO users (email, password, first_name, last_name, role_id)"
-                . " VALUES ('some-email@gmail.com', '". $password ."', 'Първо', 'Второ', '1')";
+                . " VALUES ('radoslav1@mail.bg', '". $password ."', 'Първо', 'Второ', '1')";
 
         $this->CI->db->query($query);
     }
@@ -155,6 +158,70 @@ class Dbinitializer {
     		if ($this->CI->db->trans_status() === FALSE) {
     			$this->CI->db->trans_rollback();
     			throw new Exception('Неуспешно създаване на таблицата за тренировачни типове.');
+    		}
+    		$this->CI->db->trans_commit();
+    	}
+    }
+    
+    private function _createAlbumsTable() {
+    	if ($this->CI->db->table_exists('albums') === FALSE) {
+    		$query = "CREATE TABLE IF NOT EXISTS `albums` (".
+    				"`id` int(11) NOT NULL AUTO_INCREMENT,".
+    				"`name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,".
+    				"PRIMARY KEY (`id`),".
+    				"UNIQUE (`name`)".
+    				") ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1";
+    	
+    		$this->CI->db->trans_begin();
+    		$this->CI->db->query($query);
+    	
+    		if ($this->CI->db->trans_status() === FALSE) {
+    			$this->CI->db->trans_rollback();
+    			throw new Exception('Неуспешно създаване на таблицата за албуми.');
+    		}
+    		$this->CI->db->trans_commit();
+    	}
+    }
+
+    private function _createGaleryTable() {
+    	if ($this->CI->db->table_exists('galery') === FALSE) {
+    		$query = "CREATE TABLE IF NOT EXISTS `galery` (".
+    				"`id` int(11) NOT NULL AUTO_INCREMENT,".
+    				"`album_id` INT NOT NULL,".
+    				"`description` text COLLATE utf8_unicode_ci NOT NULL,".
+    				"`file_type` ENUM('image', 'video'),".
+    				"PRIMARY KEY (`id`),".
+    				"FOREIGN KEY (`album_id`) REFERENCES albums(`id`) ON DELETE CASCADE".
+    				") ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1";
+    		 
+    		$this->CI->db->trans_begin();
+    		$this->CI->db->query($query);
+    		 
+    		if ($this->CI->db->trans_status() === FALSE) {
+    			$this->CI->db->trans_rollback();
+    			throw new Exception('Неуспешно създаване на таблицата за видеа и снимки.');
+    		}
+    		$this->CI->db->trans_commit();
+    	}
+    }
+
+    private function _createNewsTable() {
+    	if ($this->CI->db->table_exists('news') === FALSE) {
+    		$query = "CREATE TABLE IF NOT EXISTS `news` (".
+    				"`id` int(11) NOT NULL AUTO_INCREMENT,".
+    				"`title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,".
+    				"`content` text COLLATE utf8_unicode_ci NOT NULL,".
+    				"`news_date` date NOT NULL,".
+    				"PRIMARY KEY (`id`),".
+    				"UNIQUE (`title`)".
+    				") ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1";
+    		 
+    		$this->CI->db->trans_begin();
+    		$this->CI->db->query($query);
+    		 
+    		if ($this->CI->db->trans_status() === FALSE) {
+    			$this->CI->db->trans_rollback();
+    			throw new Exception('Неуспешно създаване на таблицата за новини.');
     		}
     		$this->CI->db->trans_commit();
     	}
