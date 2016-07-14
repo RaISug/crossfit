@@ -43,6 +43,13 @@
 			margin-top: 70px;
 		}
 		
+		.ellipsis {
+		    white-space: nowrap;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    -o-text-overflow: ellipsis;
+		}
+		
 	</style>
 	
 </head>
@@ -67,6 +74,7 @@
 						<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
 						<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
 						<li class="<?php ifPageIsSelectedMarkItAsActive("contacts") ?>"><a href="<?php echo base_url("contacts"); ?>">Контакти</a></li>
+						<li class="<?php ifPageIsSelectedMarkItAsActive("news") ?>"><a href="<?php echo base_url("news"); ?>">Новини</a></li>
 						<?php if ($isUserLoggedIn === FALSE) { ?>
 							<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>">Вход</a></li>
 							<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>">Регистрация</a></li>
