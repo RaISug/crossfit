@@ -13,7 +13,7 @@
 		.form-registration {
 			max-width: 330px;
 			padding: 35px;
-			margin: 175px auto;
+			margin: 175px auto 25px auto;
 			box-shadow: 5px 5px 15px gray;
 		}
 		

@@ -1,3 +1,5 @@
+		</div>
+	</div>
 	<div id="footer-wrapper">
 		<div class="container">
 			<div class="cols-4 widget-column-1">
@@ -21,12 +23,13 @@
 			</div>
 
 			<div class="cols-4 widget-column-3">
-<!-- 				<h5>Скорошни новини</h5>
+<!-- 			<h5>Скорошни новини</h5>
 				<div class="recent-post">
-					<a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/"></a> <a
-						href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/"><h6>Hello world!</h6></a>
+					<a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/"></a>
+					<a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/">
+						<h6>Hello world!</h6>
+					</a>
 					<p>Welcome to WordPress. This is your first post. Edit or delete&#8230;</p>
-
 				</div> -->			
 			</div>
 
@@ -67,7 +70,9 @@
 	<script type="text/javascript">
 	
 		setInterval(function() {
-		 	document.getElementsByClassName("nivo-nextNav")[0].click();
+			if (document.getElementsByClassName("nivo-nextNav")[0]) {
+		 		document.getElementsByClassName("nivo-nextNav")[0].click();
+			}				
 	  	}, 5000);
 
 	</script>

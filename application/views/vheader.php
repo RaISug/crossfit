@@ -34,57 +34,85 @@
 	<script type='text/javascript' src='<?php echo base_url("assets/js/bizgrowth/custom.js?ver=4.5.2"); ?>'></script>
 
 	<style type="text/css">
+	
+		html, body {
+			height: 100%;		
+		}
+		
 		.sitenav ul li a:hover, .sitenav ul li.current_page_item a, .slide_info .slide_more:hover,
 			.services-wrap .one_third:hover .MoreLink, .ReadMore:hover {
 			border-color: #0294CF;
 		}
 		
 		.content_body {
-			margin-top: 70px;
+			margin-top: 100px;
 		}
 		
-		.ellipsis {
+		.ellipsis * {
 		    white-space: nowrap;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    -o-text-overflow: ellipsis;
 		}
 		
+		@media screen and (min-width: 1024px) {
+			
+			#page-wrapper {
+			   	min-height: 100%;
+			}
+	
+			#body-wrapper {
+				overflow:auto;
+			   	padding-bottom: 270px;
+			}
+			
+			#footer-wrapper {
+			   	bottom: 0;
+			   	width: 100%;
+			   	height: 270px;  /* Height of the footer */
+			   	position: relative;
+			   	margin-top: -270px;
+			}
+			
+		}
+		
 	</style>
 	
 </head>
 <body class="home page page-id-10 page-template-default">
-	<div class="header ">
-		<div class="container">
-			<div class="logo">
-				<h1>
-					<a href="<?php base_url(); ?>">CrossFit</a>
-				</h1>
-				<span>CrossFit Training</span>
-			</div>
-
-			<div class="toggle">
-				<a class="toggleMenu" href="#">Menu</a>
-			</div>
-
-			<div class="sitenav">
-				<div class="menu">
-					<ul>
-						<li class="<?php ifPageIsSelectedMarkItAsActive("home") ?>"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
-						<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
-						<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
-						<li class="<?php ifPageIsSelectedMarkItAsActive("contacts") ?>"><a href="<?php echo base_url("contacts"); ?>">Контакти</a></li>
-						<li class="<?php ifPageIsSelectedMarkItAsActive("news") ?>"><a href="<?php echo base_url("news"); ?>">Новини</a></li>
-						<?php if ($isUserLoggedIn === FALSE) { ?>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>">Вход</a></li>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>">Регистрация</a></li>
-						<?php } else { ?>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("logout") ?>"><a href="<?php echo base_url("logout"); ?>">Изход</a></li>
-						<?php } ?>
-					</ul>
+	<div id="page-wrapper">
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<h1>
+						<a href="<?php base_url(); ?>">CrossFit</a>
+					</h1>
+					<span>CrossFit Training</span>
 				</div>
+	
+				<div class="toggle">
+					<a class="toggleMenu" href="#">Menu</a>
+				</div>
+	
+				<div class="sitenav">
+					<div class="menu">
+						<ul>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("home") ?>"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("contacts") ?>"><a href="<?php echo base_url("contacts"); ?>">Контакти</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("news") ?>"><a href="<?php echo base_url("news"); ?>">Новини</a></li>
+							<?php if ($isUserLoggedIn === FALSE) { ?>
+								<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>">Вход</a></li>
+								<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>">Регистрация</a></li>
+							<?php } else { ?>
+								<li class="<?php ifPageIsSelectedMarkItAsActive("logout") ?>"><a href="<?php echo base_url("logout"); ?>">Изход</a></li>
+							<?php } ?>
+						</ul>
+					</div>
+				</div>
+	
+				<div class="clear"></div>
 			</div>
-
-			<div class="clear"></div>
 		</div>
-	</div>
+		<div id="body-wrapper">
