@@ -97,16 +97,16 @@
 				<div class="sitenav">
 					<div class="menu">
 						<ul>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("home") ?>"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("contacts") ?>"><a href="<?php echo base_url("contacts"); ?>">Контакти</a></li>
-							<li class="<?php ifPageIsSelectedMarkItAsActive("news") ?>"><a href="<?php echo base_url("news"); ?>">Новини</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("home") ?>"><a href="<?php echo base_url("home"); ?>" style="text-decoration: none;">Начало</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("schedule") ?>"><a href="<?php echo base_url("schedule"); ?>" style="text-decoration: none;">График</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>" style="text-decoration: none;">Ценоразпис</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("contacts") ?>"><a href="<?php echo base_url("contacts"); ?>" style="text-decoration: none;">Контакти</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("news") ?>"><a href="<?php echo base_url("news"); ?>" style="text-decoration: none;">Новини</a></li>
 							<?php if ($isUserLoggedIn === FALSE) { ?>
-								<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>">Вход</a></li>
-								<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>">Регистрация</a></li>
+								<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>" style="text-decoration: none;">Вход</a></li>
+								<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>" style="text-decoration: none;">Регистрация</a></li>
 							<?php } else { ?>
-								<li class="<?php ifPageIsSelectedMarkItAsActive("logout") ?>"><a href="<?php echo base_url("logout"); ?>">Изход</a></li>
+								<li class="<?php ifPageIsSelectedMarkItAsActive("logout") ?>"><a href="<?php echo base_url("logout"); ?>" style="text-decoration: none;">Изход</a></li>
 							<?php } ?>
 						</ul>
 					</div>

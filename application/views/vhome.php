@@ -39,47 +39,43 @@ include_once "vheader.php";
 		<div class="clear"></div>
 	</section>
 
+	<link href="<?php echo base_url("assets/css/bootstrap/bootstrap.min.css"); ?>" rel="stylesheet"> 
+	
 	<div class="container">
 		<div class="page_content">
-			<section class="site-main">
-				<h1 class="entry-title">Новини: </h1><br>
-				<div class="entry-content">
-					<article class="post">
-
-					    <header class="entry-header">
-					        <h2 class="single_title">Тема на новината</h2>
-					    </header>
-					    
-					     <div class="postmeta">
-					            <div class="post-date">Дата</div><!-- post-date -->
-					            <div class="post-comment"> &nbsp;|&nbsp; <a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/#comments">Брой коментари</a></div> 
-					             <div class="post-categories">&nbsp;|&nbsp; Категория: <a href="http://besemans-truckshop.com/crossfit/blog/category/uncategorized/" rel="category tag">Категория</a></div>
-					            <div class="clear"></div>         
-					    </div>
-					    
-					    <div class="entry-content">
-					        <p>Съдържание на новината</p>
-				                <div class="postmeta">          
-						            <div class="post-tags"> </div>
-						            <div class="clear"></div>
-						        </div>
-					    </div>
-					   
-					    <footer class="entry-meta"></footer>
-					
-					</article>
+			<div class="content_body">
+				<h1>За нас</h1>
+				<div class="row">
+				  <div class="col-sm-12 col-md-4">
+				    <div class="thumbnail">
+				      <img src="<?php echo base_url("/assets/css/images/for-as.jpg"); ?>" class="img-circle" style="max-width: 200px; max-height: 200px">
+				      <div class="caption" style="text-align: center">
+				        <h3>Име и фамилия</h3>
+				        <p>кратко описание, от около няколко изречения</p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-sm-12 col-md-4">
+				    <div class="thumbnail">
+				      <img src="<?php echo base_url("/assets/css/images/for-as.jpg"); ?>" class="img-circle" style="max-width: 200px; max-height: 200px">
+				      <div class="caption" style="text-align: center">
+				        <h3>Име и фамилия</h3>
+				        <p>кратко описание, от около няколко изречения</p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-sm-12 col-md-4">
+				    <div class="thumbnail">
+				      <img src="<?php echo base_url("/assets/css/images/for-as.jpg"); ?>" class="img-circle" style="max-width: 200px; max-height: 200px">
+				      <div class="caption" style="text-align: center">
+				        <h3>Име и фамилия</h3>
+				        <p>кратко описание, от около няколко изречения</p>
+				      </div>
+				    </div>
+				  </div>
 				</div>
-			</section>
-
-			<!-- <div id="sidebar">
-				<aside id="recent-posts-2" class="widget widget_recent_entries">
-					<h3 class="widget-title">Recent Posts</h3>
-					<ul>
-						<li><a href="http://besemans-truckshop.com/crossfit/blog/2016/05/14/hello-world/">Hello world!</a></li>
-					</ul>
-				</aside>
-			</div> -->
-			<div class="clear"></div>
+				<div class="clear"></div>
+			</div>
 		</div>
 	</div>
 
