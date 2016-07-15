@@ -64,7 +64,7 @@
 				</div>
 				
 				<div class="booking-form">
-					<h3 align="center">За да се запишите моля натиснете бутона:</h3>
+					<h3 align="center">За да се запишите/отпишите моля натиснете бутона:</h3>
 					<form method="POST" action="<?php echo base_url("booking"); ?>" align="center">
 						<input type="hidden" name="schedule" value="<?php echo $scheduleId; ?>">
 						<button class="booking-button" type="submit"><?php echo $isTrainingBooked ? "Отписване" : "Записване" ?></button>

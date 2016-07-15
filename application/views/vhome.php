@@ -14,25 +14,25 @@ include_once "vheader.php";
 			</div>
 			<div id="slidecaption1" class="nivo-html-caption">
 				<div class="slide_info">
-					<h2>Някакъв текст</h2>
+					<!-- <h2>Някакъв текст</h2>
 					<p>По описателен текст</p>
-					<a class="slide_more" href="#">Прочети още</a>
+					<a class="slide_more" href="#">Прочети още</a> -->
 				</div>
 			</div>
 
 			<div id="slidecaption2" class="nivo-html-caption">
 				<div class="slide_info">
-					<h2>Някакъв текст</h2>
+					<!-- <h2>Някакъв текст</h2>
 					<p>По описателен текст</p>
-					<a class="slide_more" href="#">Прочети още</a>
+					<a class="slide_more" href="#">Прочети още</a> -->
 				</div>
 			</div>
 
 			<div id="slidecaption3" class="nivo-html-caption">
 				<div class="slide_info">
-					<h2>Някакъв текст</h2>
+					<!-- <h2>Някакъв текст</h2>
 					<p>По описателен текст</p>
-					<a class="slide_more" href="#">Прочети още</a>
+					<a class="slide_more" href="#">Прочети още</a> -->
 				</div>
 			</div>
 		</div>
@@ -44,7 +44,7 @@ include_once "vheader.php";
 	<div class="container">
 		<div class="page_content">
 			<div class="content_body">
-				<h1>За нас</h1>
+				<h1>Информация за нас: </h1>
 				<div class="row">
 				  <div class="col-sm-12 col-md-4">
 				    <div class="thumbnail">

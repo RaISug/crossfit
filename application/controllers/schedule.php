@@ -8,12 +8,44 @@ class Schedule extends BController {
 		$this->_startRequestProcessing();
 	}
 	
+	public function mobile() {
+		$this->_loadModelsAndLibraries();
+		if ($this->_isValidDateInterval()) {
+			$interval = $this->input->get("interval");
+			$interval = $this->security->xss_clean($interval);
+			
+			$date = $this->_getTheDateAfterNDays($interval);
+			$dailySchedules = $this->mschedule->byDate($date);
+			
+			foreach ($dailySchedules as &$dailySchedule) {
+				$dateTime = explode(" ", $dailySchedule->training_date);
+				$dailySchedule->date = $dateTime[0];
+				$dailySchedule->time = $dateTime[1];
+			}
+			
+			$this->data['schedule'] = $dailySchedules;
+		} else {
+			$this->data['errorMessage'] = "Невалидна дата";
+		}
+		
+		$this->_loadView();
+	}
+	
+	function _isValidDateInterval() {
+		$interval = $this->input->get("interval");
+		return $interval >= 0 && $interval <= 6;
+	}
+	
 	function _loadModelsAndLibraries() {
 		$this->load->model("mschedule");
 	}
 	
 	function _isValidRequest() {
 		return TRUE;
+	}
+	
+	function _loadView() {
+		$this->load->view('vschedule', $this->data);
 	}
 	
 	public function _processRequest() {
@@ -31,7 +63,7 @@ class Schedule extends BController {
 		}
 
 		$this->data['schedules'] = $schedules;
-		$this->load->view('vschedule', $this->data);
+		$this->_loadView();
 	}
 	
 	private function _getTheDateAfterNDays($numberOf) {
