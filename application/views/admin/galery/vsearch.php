@@ -58,7 +58,7 @@
 			  			 } ?>
 					<div class="caption" align="center">
 						<p class="ellipsis">Вид на файла: <?php echo $galeryFiles[$i]['file_type']; ?></p>
-						<p class="ellipsis">Албум: <?php echo $galeryFiles[$i]['album_id']; ?></p>
+						<p class="ellipsis">ID на албума: <?php echo $galeryFiles[$i]['album_id']; ?></p>
 	                    <form method="POST" action="<?php echo base_url("admin/galery/deletion"); ?>">
 	                    	<input type="hidden" name="id" value="<?php echo $galeryFiles[$i]['id']; ?>"/>
 	                    	<button class="btn btn-primary" type="submit">Изтрии</button>

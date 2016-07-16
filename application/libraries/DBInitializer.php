@@ -190,6 +190,7 @@ class Dbinitializer {
     				"`album_id` INT NOT NULL,".
     				"`description` text COLLATE utf8_unicode_ci NOT NULL,".
     				"`file_type` ENUM('image', 'video'),".
+    				"`file_name` varchar(56) NOT NULL,".
     				"PRIMARY KEY (`id`),".
     				"FOREIGN KEY (`album_id`) REFERENCES albums(`id`) ON DELETE CASCADE".
     				") ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1";

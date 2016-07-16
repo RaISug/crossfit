@@ -102,6 +102,7 @@
 							<li class="<?php ifPageIsSelectedMarkItAsActive("pricelist") ?>"><a href="<?php echo base_url("pricelist"); ?>" style="text-decoration: none;">Ценоразпис</a></li>
 							<li class="<?php ifPageIsSelectedMarkItAsActive("contacts") ?>"><a href="<?php echo base_url("contacts"); ?>" style="text-decoration: none;">Контакти</a></li>
 							<li class="<?php ifPageIsSelectedMarkItAsActive("news") ?>"><a href="<?php echo base_url("news"); ?>" style="text-decoration: none;">Новини</a></li>
+							<li class="<?php ifPageIsSelectedMarkItAsActive("galery") ?>"><a href="<?php echo base_url("galery"); ?>" style="text-decoration: none;">Галерия</a></li>
 							<?php if ($isUserLoggedIn === FALSE) { ?>
 								<li class="<?php ifPageIsSelectedMarkItAsActive("login") ?>"><a href="<?php echo base_url("login"); ?>" style="text-decoration: none;">Вход</a></li>
 								<li class="<?php ifPageIsSelectedMarkItAsActive("registration") ?>"><a href="<?php echo base_url("registration"); ?>" style="text-decoration: none;">Регистрация</a></li>

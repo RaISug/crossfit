@@ -20,6 +20,11 @@ class MAlbums extends CI_Model {
 	public function findAll() {
 		return $this->db->get('albums')->result_array();
 	}
+
+	public function findAllCoverAlbums() {
+		$query = "SELECT a.*, (SELECT g.file_name FROM galery g WHERE g.album_id = a.id LIMIT 1) as file_name FROM albums a";
+		return $this->db->query($query)->result_array();
+	}
 	
 	public function deleteById($albumId) {
 		$this->db->trans_begin();

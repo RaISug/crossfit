@@ -80,7 +80,15 @@ class MGalery extends CI_Model {
 	public function findAll() {
 		return $this->db->get("galery")->result_array();
 	}
+
+	public function findAllImages() {
+		return $this->db->where('file_type', 1)->get("galery")->result_array();
+	}
 	
+	public function findAllVideos() {
+		return $this->db->where('file_type', 2)->get("galery")->result_array();
+	}
+
 	public function byAlbumAndFileTypeId($albumId, $fileTypeId) {
 		return $this->db->where("album_id", $albumId)->where("file_type", $fileTypeId)->get("galery")->result_array();
 	}
