@@ -59,6 +59,10 @@
 			                            <li><a href=<?php echo base_url('admin/training/searching'); ?>>Изтриване</a></li>
 			                        </ul>
 			                    </li>
+	      			            
+	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/training/types')); ?>">
+	                		        <a href=<?php echo base_url('admin/training/types/creation'); ?>>Типове тренировки</a>
+	      			            </li>
 
 			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/galery', 'admin/album')); ?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Галерия <span class="caret"></span></a>
@@ -80,10 +84,6 @@
 			                    
 	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/participants')); ?>">
 	                		        <a href=<?php echo base_url('admin/participants'); ?>>Списък с присъстващи</a>
-	      			            </li>
-	      			            
-	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/training/types')); ?>">
-	                		        <a href=<?php echo base_url('admin/training/types/creation'); ?>>Типове тренировки</a>
 	      			            </li>
 			                </ul>
 	

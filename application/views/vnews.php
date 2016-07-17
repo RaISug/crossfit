@@ -9,7 +9,7 @@
 		hr.edges {
 			height: 6px;
 			background: url(<?php echo base_url("/assets/css/images/hr-12.png") ?>) repeat-x 0 0;
-			padding-bottom: 25px;
+			padding-bottom: 10px;
 		    border: 0;
 		}
 
