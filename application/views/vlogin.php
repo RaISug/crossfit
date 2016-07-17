@@ -71,7 +71,7 @@
 		
 		<?php 
 			if (isset($errorMessage)) {
-				echo $errorMessage;
+				echo "<p style='text-align: center; color: red;'>" . $errorMessage . "</p>";
 			}
 		?>
 	</div>

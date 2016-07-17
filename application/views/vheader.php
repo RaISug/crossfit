@@ -85,7 +85,7 @@
 			<div class="container">
 				<div class="logo">
 					<h1>
-						<a href="<?php base_url(); ?>">CrossFit</a>
+						<a href="<?php base_url(); ?>" style="text-decoration: none;">CrossFit</a>
 					</h1>
 					<span>CrossFit Training</span>
 				</div>
