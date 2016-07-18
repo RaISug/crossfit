@@ -12,6 +12,8 @@
 <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CrossFit &#8211; CrossFit Training</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url("assets/css/images/logo/comandofit.jpg"); ?>" />
 
 	<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto+Condensed%3A400%2C300%2C400italic%2C700&#038;ver=4.5.2' type='text/css' media='all' />
 	<link rel='stylesheet' href='<?php echo base_url("assets/css/bizgrowth/style.css?ver=4.5.2"); ?>' type='text/css' media='all' />
@@ -84,10 +86,11 @@
 		<div class="header">
 			<div class="container">
 				<div class="logo">
-					<h1>
-						<a href="<?php base_url(); ?>" style="text-decoration: none;">CrossFit</a>
-					</h1>
-					<span>CrossFit Training</span>
+						<a href="<?php echo base_url(); ?>" style="text-decoration: none;">
+							<img src="<?php echo base_url("assets/css/images/logo/comandofit.jpg"); ?>" style="max-height: 35px; min-height: 35px;"/>
+							ComandoFit
+						</a>
+					<span>ComandoFit Training</span>
 				</div>
 	
 				<div class="toggle">
