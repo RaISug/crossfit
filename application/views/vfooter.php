@@ -51,7 +51,7 @@
 	
 					<div class="clear"></div>
 					<div class="footer-icons">
-						<a title="facebook" class="fa fa-facebook" target="_blank" href="#facebook"></a>
+						<a title="facebook" class="fa fa-facebook" target="_blank" href="https://www.facebook.com/CommandoFit-1006452329470384"></a>
 						<a title="twitter" class="fa fa-twitter" target="_blank" href="#twitter"></a>
 						<a title="google-plus" class="fa fa-google-plus" target="_blank" href="#gplus"></a>
 						<a title="linkedin" class="fa fa-linkedin" target="_blank" href="#linkedin"></a>
@@ -64,7 +64,7 @@
 	
 			<div class="copyright-wrapper">
 				<div class="container">
-					<div class="copyright-txt">2016 CrossFit. All Right Reserved</div>
+					<div class="copyright-txt">2016 CommandoFit. All Right Reserved</div>
 				</div>
 				<div class="clear"></div>
 			</div>
