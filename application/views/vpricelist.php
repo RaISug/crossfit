@@ -32,41 +32,63 @@ include_once 'vheader.php';
 			border: 1px solid black;
 		}
 		
-		.schedule-slots:hover {
+		.pricebox {
 			box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2);
 		}
 		
 	</style>
 
+	<link href="<?php echo base_url("assets/css/bootstrap/bootstrap.min.css"); ?>" rel="stylesheet"> 
+
 	<div class="container">
 		<div class="page_content">
 			<div class="content_body">
-				<h1>Ценоразпис: </h1>
-				<div align="center">
-					<table class="pricelist_table">
-						<tbody>
-							<tr>
-								<th>Посещения</th>
-								<th>Цена</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>10 лв.</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>35 лв.</td>
-							</tr>
-							<tr>
-								<td>8</td>
-								<td>70 лв.</td>
-							</tr>
-							<tr>
-								<td>10</td>
-								<td>80 лв.</td>
-							</tr>
-						</tbody>
-					</table>
+				<h3 style="text-align: center"><b>Единични посещения</b></h3>
+				<div class="row">
+				  	<div class="col-sm-12 col-md-6">
+				    	<div class="thumbnail pricebox">
+					      	<div class="caption" style="text-align: center">
+					        	<h3>Единично посещение</h3>
+					        	<p><b>10 лв.</b></p>
+					      	</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-12 col-md-6">
+					    <div class="thumbnail pricebox">
+					      	<div class="caption" style="text-align: center">
+					        	<h3>Индивидуална тренировка</h3>
+					        	<p><b>20 лв.</b></p>
+					      	</div>
+					    	</div>
+				  	</div>
+				</div>
+				<br><br>
+				<h3 style="text-align: center"><b>Карти</b></h3>
+				<div class="row">
+				  	<div class="col-sm-6 col-md-4">
+				    	<div class="thumbnail pricebox">
+					      	<div class="caption" style="text-align: center">
+					        	<h3>10 посещения</h3>
+					        	<p><b>80 лв.</b></p>
+					      	</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-6 col-md-4">
+				    	<div class="thumbnail pricebox">
+					      	<div class="caption" style="text-align: center">
+					        	<h3>12 посещения</h3>
+					        	<p><b>100 лв.</b></p>
+					      	</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-6 col-md-4">
+				    	<div class="thumbnail pricebox">
+					      	<div class="caption" style="text-align: center">
+					        	<h3>Неограничен достъп</h3>
+					        	<p><b>150 лв.</b></p>
+					      	</div>
+				    	</div>
+				  	</div>
 				</div>
 			</div>
 		</div>
