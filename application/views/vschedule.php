@@ -42,10 +42,40 @@
 		return 'Неделя';
 	}
 
+	function printSchedules($schedules) {
+		foreach ($schedules as $schedule) {
+			$endpointUrl = base_url("booking?schedule=".$schedule->id);
+			$messageColor = $schedule->reserved_seats === $schedule->available_seats ? "red" : "green";
+			$message = "Вид: " . $schedule->training_type . "<br>Места: " . $schedule->reserved_seats . "/" . $schedule->available_seats;
+			
+			$content = "<div><a href='$endpointUrl' style='color: $messageColor; text-decoration: none;'>$message</a></div>";
+				
+			echo "
+  				<div class='col-sm-6 col-md-4'>
+  					<div class='thumbnail' style='box-shadow: 5px 0px 15px #888888; max-height: 150px; min-height: 150px;'>
+  						<div class='caption' style='text-align: center'>
+  							<b><p>Начало на тренировката: " . $schedule->time . "</p></b>
+  							<h3>" . $content . "</h3>
+				      	</div>
+					 </div>
+			  	</div>
+			";
+		}
+	}
 ?>
 	
 	<style>
 	
+		.warning-message {
+			padding: 15px;
+			color: #31708f;
+			font-size: 20px;
+			border: 1px solid #d9edf7;
+			border-radius: 2px;
+			background-color: #d9edf7;
+			margin-bottom: 15px;
+		}
+		
 		.schedule_table {
 			width: 100%;
 			table-layout: fixed;
@@ -92,17 +122,17 @@
 			box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2);
 		}
 
-		@media screen and (max-width: 1024px) {
+		/* @media screen and (max-width: 1024px) {
 			.schedule_table {
 				display: none;!important
 			}
 		}
 		
-		@media screen and (min-width: 1024px) {
+		@media screen and (max-width: 1024px) {
 			.schedule_block {
 				display: none;!important
 			}
-		}
+		} */
 		
 	</style>
 	
@@ -117,38 +147,13 @@
 						echo "<p style='text-align: center; color: red;'>$errorMessage</p>";
 					} else if (isset($schedules)) {
 					?>
-						<h1>График за следващите седем дена: </h1><br>
-						<table class="schedule_table">
-							<tbody>
-								<tr>
-									<th></th>
-									<?php 
-										for ($interval = 0 ; $interval < 7 ; $interval++) {
-											echo "<th>" . getTheDateAfterNDays($interval) . "</th>";
-										}
-									?>
-								</tr>
-								<?php
-									for ($i = 9 ; $i <= 19 ; $i++) {
-										$trainingHour = sprintf("%02d:00:00", $i);
-										echo "
-											<tr>
-												<td class='training_hour' style='color: #0294CF'>$trainingHour</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[0], $trainingHour) . "</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[1], $trainingHour) . "</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[2], $trainingHour) . "</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[3], $trainingHour) . "</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[4], $trainingHour) . "</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[5], $trainingHour) . "</td>
-												<td class='schedule-slots'>" . displayTrainingsForTheSpecifiedHour($schedules[6], $trainingHour) . "</td>
-											</tr>
-										";
-									}
-								?>
-							</tbody>
-						</table>
-						
 						<div class="schedule_block">
+							<div class="warning-message">
+							 	<span class="fa fa-warning"></span> Индивидуални, свободни и групови тренировки в указаното време се провеждат след регистрация в сайта.
+							</div>
+							<div class="warning-message">
+							 	<span class="fa fa-warning"></span> Тренировките извън работно време стават след обаждане на някой от телефоните посочени в страницата за контакти.
+							</div>
 					  		<?php
 								echo "<div class='row'>";
 					  			for ($interval = 0 ; $interval < 7 ; $interval++) {
@@ -168,22 +173,17 @@
 						</div>
 				<?php 
 					} else if (isset($schedule)) {
-						echo "<h1>График по часове: </h1>";
-						echo "<div class='row'>";
-	  					for ($i = 9 ; $i <= 19 ; $i++) {
-							$trainingHour = sprintf("%02d:00:00", $i); 
-							echo "
-								<div class='col-sm-6 col-md-4'>
-							    	<div class='thumbnail' style='box-shadow: 5px 0px 15px #888888; max-height: 150px; min-height: 150px;'>
-								      	<div class='caption' style='text-align: center'>
-								      		<p>Час: $trainingHour</p>
-								        	<h3>" . displayTrainingsForTheSpecifiedHour($schedule, $trainingHour) . "</h3>
-								      	</div>
-								    </div>
-							  	</div>
-							";
+	  					if (count($schedule) > 0) {
+		  					echo "<h1 style='padding-bottom: 25px;'>График по часове: </h1>";
+
+		  					echo "<div class='row'>";
+		  					
+		  					printSchedules($schedule);
+		  					
+		  					echo "</div>";
+	  					} else {
+	  						echo "<h3 style='text-align: center'>Няма тренировки за тази дата.</h3>";
 	  					}
-	  					echo "</div>";
 					}
 				?>
 			</div>

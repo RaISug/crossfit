@@ -13,10 +13,10 @@
 					<div class="menu">	
 						<div class="menu">
 							<ul>
-								<li class="page_item"><a href="<?php echo base_url("home"); ?>">Начало</a></li>
 								<li class="page_item"><a href="<?php echo base_url("schedule"); ?>">График</a></li>
 								<li class="page_item"><a href="<?php echo base_url("pricelist"); ?>">Ценоразпис</a></li>
 								<li class="page_item"><a href="<?php echo base_url("news"); ?>">Новини</a></li>
+								<li class="page_item"><a href="<?php echo base_url("galery"); ?>">Галерия</a></li>
 								<li class="page_item"><a href="<?php echo base_url("contacts"); ?>">Контакти</a></li>
 							</ul>
 						</div>

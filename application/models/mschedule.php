@@ -3,6 +3,10 @@
 class MSchedule extends CI_Model {
 
 	public function persist($scheduleData) {
+		if ($this->isEntryAlreadyPersisted($scheduleData["training_id"], $scheduleData["training_date"])) {
+			return;
+		}
+
 		$this->db->trans_begin();
 		$this->db->insert('schedules', $scheduleData);
 		
@@ -13,6 +17,18 @@ class MSchedule extends CI_Model {
 		$this->db->trans_commit();
 	}
 	
+	private function isEntryAlreadyPersisted($trainingId, $trainingDate) {
+		return count($this->byTrainingIdAndDate($trainingId, $trainingDate)) > 0;
+	}
+	
+	public function byTrainingIdAndDate($trainingId, $trainingDate) {
+		$query = "SELECT * FROM schedules WHERE training_id = ?"
+				." AND DATE_FORMAT(training_date, '%d.%m.%Y') = DATE_FORMAT(?, '%d.%m.%Y')"
+				." AND DATE_FORMAT(training_date, '%h:%m:%s') = DATE_FORMAT(?, '%h:%m:%s')";
+		
+		return $this->db->query($query, array($trainingId, $trainingDate, $trainingDate))->result_array();
+	}
+
 	public function deleteById($scheduleId) {
 		$this->db->trans_begin();
 		$this->db->where("id", $scheduleId)->delete('schedules');
@@ -22,6 +38,16 @@ class MSchedule extends CI_Model {
 			throw new Exception('Неуспешено изтриване на данните.');
 		}
 		$this->db->trans_commit();
+	}
+	
+	public function byDay($day) {
+		$query = "SELECT * FROM schedules WHERE DATE_FORMAT(training_date, '%d.%m.%Y') = DATE_FORMAT(?, '%d.%m.%Y')";
+		return $this->db->query($query, array($day))->result_array();
+	}
+	
+	public function byWeek($week) {
+		$query = "SELECT * FROM schedules WHERE DATE_FORMAT(training_date, '%v') = ?";
+		return $this->db->query($query, array(date("W", strtotime($week))))->result_array();
 	}
 	
 	public function forTheNextSevenDays() {

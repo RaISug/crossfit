@@ -4,13 +4,32 @@ include_once "vheader.php";
 
 ?>
 
+	<style>
+		.paginator {
+			max-width: 100%; 
+			min-width: 100%; 
+			min-height: 600px; 
+			max-height: 600px;
+		}
+		
+		@media screen and (max-width: 768px) {
+			.paginator {
+				max-width: 100%; 
+				min-width: 100%; 
+				min-height: 100%; 
+				max-height: 100%;
+			}
+		}
+		
+	</style>
+
 	<section id="home_slider">
 		<div class="slider-wrapper theme-default">
-			<div id="slider" class="nivoSlider" style="max-width: 100%; min-width: 100%; min-height: 600px; max-height: 600px;">
-				<!-- <img src="<?php /* echo base_url("assets/css/images/slides/slide1.jpg"); */ ?>" alt="" title="#slidecaption1" /> -->
+			<div id="slider" class="nivoSlider paginator">
+				<img src="<?php echo base_url("assets/css/images/slides/slide1.jpg"); ?>" alt="" title="#slidecaption1" />
 				<img src="<?php echo base_url("assets/css/images/slides/slide2.jpg"); ?>" alt="" title="#slidecaption2" />
 				<img src="<?php echo base_url("assets/css/images/slides/slide3.jpg"); ?>" alt="" title="#slidecaption1" />
-				<img src="<?php echo base_url("assets/css/images/slides/slide4.jpeg"); ?>" alt="" title="#slidecaption3" />
+				<!-- <img src="<?php // echo base_url("assets/css/images/slides/slide4.jpeg"); ?>" alt="" title="#slidecaption3" /> -->
 			</div>
 			<div id="slidecaption1" class="nivo-html-caption">
 				<div class="slide_info">

@@ -20,7 +20,7 @@
 
 	<script>
 		function initializeGoogleMaps() {
-			var mapCenter = new google.maps.LatLng(42.6793572, 23.366634);
+			var mapCenter = new google.maps.LatLng(42.6782539,23.3676681);
 		  	var mapPropties = {
 		    	zoom: 16,
 		    	center: mapCenter,

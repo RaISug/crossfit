@@ -48,6 +48,8 @@
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Графици <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/schedule/creation'); ?>>Създаване</a></li>
+			                            <li><a href=<?php echo base_url('admin/schedule/replication/daily'); ?>>Копирай ден</a></li>
+			                            <li><a href=<?php echo base_url('admin/schedule/replication/weekly'); ?>>Копирай седмица</a></li>
 			                            <li><a href=<?php echo base_url('admin/schedule/searching'); ?>>Изтриване</a></li>
 			                        </ul>
 			                    </li>
