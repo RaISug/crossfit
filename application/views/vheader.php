@@ -87,10 +87,9 @@
 			<div class="container">
 				<div class="logo">
 						<a href="<?php echo base_url(); ?>" style="text-decoration: none;">
-							<img src="<?php echo base_url("assets/css/images/logo/commandofit.jpg"); ?>" style="max-height: 35px; min-height: 35px;"/>
-							CommandoFit
+							<img src="<?php echo base_url("assets/css/images/logo/commandofit.jpg"); ?>" style="max-height: 55px; min-height: 55px;"/>
+							<b style="font-size: 20px;">CommandoFit</b>
 						</a>
-					<span>CommandoFit Training</span>
 				</div>
 	
 				<div class="toggle">
