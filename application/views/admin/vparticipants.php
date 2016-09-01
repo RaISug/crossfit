@@ -15,16 +15,11 @@
 	            <div class="col-sm-4">
 	                <select name="schedule_time" class="form-control"> 
 	                    <option value="09:00">09:00</option>
-	                    <option value="10:00">10:00</option>
-	                    <option value="11:00">11:00</option>
+	                    <option value="10:30">10:30</option>
 	                    <option value="12:00">12:00</option>
-	                    <option value="13:00">13:00</option>
-	                    <option value="14:00">14:00</option>
-	                    <option value="15:00">15:00</option>
-	                    <option value="16:00">16:00</option>
-	                    <option value="17:00">17:00</option>
+	                    <option value="16:30">16:30</option>
 	                    <option value="18:00">18:00</option>
-	                    <option value="19:00">19:00</option>
+	                    <option value="19:30">19:30</option>
 	                </select>
 	            </div>
 	        </div>
