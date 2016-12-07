@@ -62,6 +62,10 @@ class MSchedule extends CI_Model {
 		return $this->db->query($query)->result_array();		
 	}
 	
+	public function replicateSchedules($schedules, $dayToCopyTo) {
+		
+	}
+	
 	public function byId($id) {
 		return $this->db->where("id", $id)->get("schedules")->result_array();
 	}
