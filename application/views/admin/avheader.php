@@ -1,6 +1,10 @@
 <?php 
 
-	function markPageAsSelectedIfTheCurrentPageStartsWith($pages) {
+	function markLinkAsSelectedIfCurrentPageMatchRegex($regEx) {
+		return preg_match($regEx, uri_string()) ? "active" : "";
+	}
+
+	function markLinkAsSelectedIfTheCurrentPageStartsWith($pages) {
 		foreach ($pages as $page) {
 			if (strpos(uri_string(), $page) !== FALSE) {
 				return "active";
@@ -44,7 +48,7 @@
 			            </div>
 			            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			                <ul class="nav navbar-nav">
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/schedule'));?>">
+			                    <li class="dropdown <?php echo markLinkAsSelectedIfTheCurrentPageStartsWith(array('admin/schedule'));?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Графици <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/schedule/creation'); ?>>Създаване</a></li>
@@ -54,7 +58,7 @@
 			                        </ul>
 			                    </li>
 			                    
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/training'));?>">
+			                    <li class="dropdown <?php echo markLinkAsSelectedIfCurrentPageMatchRegex('/admin\/training(?!\/types)/');?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Тренировки <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/training/creation'); ?>>Създаване</a></li>
@@ -62,11 +66,11 @@
 			                        </ul>
 			                    </li>
 	      			            
-	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/training/types')); ?>">
+	                            <li class="<?php echo markLinkAsSelectedIfTheCurrentPageStartsWith(array('admin/training/types')); ?>">
 	                		        <a href=<?php echo base_url('admin/training/types/creation'); ?>>Типове тренировки</a>
 	      			            </li>
 
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/galery', 'admin/album')); ?>">
+			                    <li class="dropdown <?php echo markLinkAsSelectedIfTheCurrentPageStartsWith(array('admin/galery', 'admin/album')); ?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Галерия <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/album/creation'); ?>>Създаване на албум</a></li>
@@ -76,7 +80,7 @@
 			                        </ul>
 			                    </li>
 			                    
-			                    <li class="dropdown <?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/news')); ?>">
+			                    <li class="dropdown <?php echo markLinkAsSelectedIfTheCurrentPageStartsWith(array('admin/news')); ?>">
 			                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Новини <span class="caret"></span></a>
 			                        <ul class="dropdown-menu" role="menu">
 			                            <li><a href=<?php echo base_url('admin/news/creation'); ?>>Създаване</a></li>
@@ -84,7 +88,7 @@
 			                        </ul>
 			                    </li>
 			                    
-	                            <li class="<?php echo markPageAsSelectedIfTheCurrentPageStartsWith(array('admin/participants')); ?>">
+	                            <li class="<?php echo markLinkAsSelectedIfTheCurrentPageStartsWith(array('admin/participants')); ?>">
 	                		        <a href=<?php echo base_url('admin/participants'); ?>>Списък с присъстващи</a>
 	      			            </li>
 			                </ul>

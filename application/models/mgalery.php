@@ -27,7 +27,7 @@ class MGalery extends CI_Model {
 	}
 	
 	function _generateFileName() {
-		return microtime(true) * 10000;
+		return strval(time());
 	}
 
 	function _uploadFile($fileName) {
@@ -35,7 +35,7 @@ class MGalery extends CI_Model {
 	
 		$this->load->library('upload');
 		$this->upload->initialize($config);
-	
+		
 		if (!$this->upload->do_upload('file')) {
 			return FALSE;
 		}
@@ -46,7 +46,7 @@ class MGalery extends CI_Model {
 	function _getImageConfigurations($fileName) {
 		return array(
 				'upload_path' => 'assets/files',
-				'allowed_types' => 'gif|jpg|png|mp4',
+				'allowed_types' => '*',
 				'file_name' => $fileName,
 				'max_size' => '10240',
 				'max_width' => '2048',
