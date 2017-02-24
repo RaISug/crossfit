@@ -29,7 +29,11 @@
 	        <div class="form-group">
 	            <label for="schedule_time" class="col-sm-4 control-label">Час:</label>
 	            <div class="col-sm-4">
-	                <select name="schedule_time" class="form-control"> 
+	                <select name="schedule_time" class="form-control">
+	                    <option value="07:00">07:00</option>
+	                    <option value="07:30">07:30</option>
+	                    <option value="08:00">08:00</option>
+	                    <option value="08:30">08:30</option>
 	                    <option value="09:00">09:00</option>
 	                    <option value="09:30">09:30</option>
 	                    <option value="09:45">09:45</option>
