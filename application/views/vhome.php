@@ -24,7 +24,7 @@ include_once "vheader.php";
 	</style>
 
 	<section id="home_slider">
-		<div class="slider-wrapper theme-default">
+		<div class="slider-wrapper theme-default" style="z-index: 1">
 			<div id="slider" class="nivoSlider paginator">
 				<img src="<?php echo base_url("assets/css/images/slides/slide1.jpg"); ?>" alt="" title="#slidecaption1" />
 				<img src="<?php echo base_url("assets/css/images/slides/slide2.jpg"); ?>" alt="" title="#slidecaption2" />

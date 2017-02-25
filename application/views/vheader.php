@@ -41,6 +41,16 @@
 			height: 100%;		
 		}
 		
+		.facebook-panel {
+			top: 50%;
+			z-index: 2;
+			position: fixed;
+			padding: 15px 5px;
+			border-radius: 1px;
+			vertical-align: middle;
+			box-shadow: 4px 4px 25px #888888;
+		}
+		
 		.sitenav ul li a:hover, .sitenav ul li.current_page_item a, .slide_info .slide_more:hover,
 			.services-wrap .one_third:hover .MoreLink, .ReadMore:hover {
 			border-color: #0294CF;
@@ -119,3 +129,8 @@
 			</div>
 		</div>
 		<div id="body-wrapper">
+			<div class="facebook-panel">
+				<div class="footer-icons">
+					<a title="facebook" style="width: 50px; height: 50px; line-height: 50px; font-size: 30px; color:#0294CF; border-color:#0294CF;" class="fa fa-facebook" target="_blank" href="https://www.facebook.com/CommandoFit-1006452329470384"></a>
+				</div>
+			</div>
