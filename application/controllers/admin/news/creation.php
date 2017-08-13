@@ -13,8 +13,13 @@ class Creation extends BController {
 	
 	function _loadModelsAndLibraries() {
 		$this->load->model("mnews");
+		$this->load->model("mgalery");
 	}
-	
+
+ 	function _additionalViewData() {
+ 		$this->data['galeryFiles'] = $this->mgalery->findAllImages();
+	}
+
 	function _loadView() {
 		$this->load->view("admin/news/vcreate", $this->data);
 	}

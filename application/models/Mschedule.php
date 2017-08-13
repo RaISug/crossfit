@@ -79,7 +79,8 @@ class MSchedule extends CI_Model {
 				 ." JOIN trainings ON trainings.id = schedules.training_id"
 				 ." JOIN training_types ON training_types.id = trainings.training_type_id"
 				 ." WHERE"
-				 ." DATE_FORMAT(schedules.training_date, '%d.%m.%Y') = ?";
+				 ." DATE_FORMAT(schedules.training_date, '%d.%m.%Y') = ?"
+	 			 ." ORDER BY schedules.training_date";
 		return $this->db->query($query, array(date_format($date, "d.m.Y")))->result_object();
 	}
 	

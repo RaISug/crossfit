@@ -49,8 +49,8 @@ class MGalery extends CI_Model {
 				'allowed_types' => '*',
 				'file_name' => $fileName,
 				'max_size' => '10240',
-				'max_width' => '2048',
-				'max_height' => '1468',
+				'max_width' => '4096',
+				'max_height' => '3072',
 				'remove_spaces' => TRUE
 		);
 	}
